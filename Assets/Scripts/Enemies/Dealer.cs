@@ -12,6 +12,7 @@ public class Dealer : Enemy
         int indexPlayer = ReadyToUseSkill();
         if (indexPlayer >= 0)
         {
+            StopWalk();
             Attack(indexPlayer);
         }
         else

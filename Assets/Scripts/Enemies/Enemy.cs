@@ -48,6 +48,11 @@ public class Enemy : MonoBehaviour
         return colliderAtBottomRight;
     }
 
+    protected void StopWalk()
+    {
+        rigid.velocity = Vector2.zero;
+    }
+
     protected void Walk()
     {
         Collider2D left = GetColliderAtBottomLeft(capsuleCollider);
