@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -5,18 +6,12 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rigid;
     [SerializeField] private float speed;
     [SerializeField] private short visionDistance;
-    [SerializeField] private GameObject player;
+    [SerializeField] protected List<GameObject> players;
     private CapsuleCollider2D capsuleCollider;
 
     private void Start()
     {
         initValue();
-    }
-
-    private void FixedUpdate()
-    {
-        Walk();
-        Debug.Log(ReadyToUseSkill());
     }
 
     private void initValue()
@@ -53,7 +48,7 @@ public class Enemy : MonoBehaviour
         return colliderAtBottomRight;
     }
 
-    private void Walk()
+    protected void Walk()
     {
         Collider2D left = GetColliderAtBottomLeft(capsuleCollider);
         Collider2D right = GetColliderAtBottomRight(capsuleCollider);
@@ -69,16 +64,20 @@ public class Enemy : MonoBehaviour
         rigid.velocity = movement;
     }
 
-    private bool ReadyToUseSkill()
+    protected int ReadyToUseSkill()
     {
-        if (speed < 0 && transform.position.x - visionDistance <= player.transform.position.x && transform.position.x >= player.transform.position.x)
+        for (int i = 0; i < players.Count; i++)
         {
-            return true;
+            Vector3 playerPosition = players[i].transform.position;
+
+            bool isPlayerInVisionRange = (speed < 0 && transform.position.x - visionDistance <= playerPosition.x && transform.position.x >= playerPosition.x) ||
+                                         (speed > 0 && transform.position.x + visionDistance >= playerPosition.x && transform.position.x <= playerPosition.x);
+
+            if (isPlayerInVisionRange)
+            {
+                return i;
+            }
         }
-        else if (speed > 0 && transform.position.x + visionDistance >= player.transform.position.x && transform.position.x <= player.transform.position.x)
-        {
-            return true;
-        }
-        return false;
+        return -1;
     }
 }
