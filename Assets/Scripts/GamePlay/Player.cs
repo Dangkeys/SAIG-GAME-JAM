@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private Vector3 initialScale;
     private bool isScaled = false;
     [field: SerializeField] public bool isPlayerOne { get; private set; }
-
+    private AudioManager audioManager;
     private void Start()
     {
         Initialize();
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         initialScale = transform.localScale;
+        audioManager = AudioManager.Instance;
     }
 
     private void ProcessMovement()
@@ -57,9 +58,11 @@ public class Player : MonoBehaviour
         float moveX = isPlayerOne ? Input.GetAxis("Horizontal") : Input.GetAxis("Player2Horizontal");
 
         movementInput = new Vector2(moveX, rb.velocity.y);
+        audioManager.WalkingSound(moveX != 0, isPlayerOne);
         HandleSprite(moveX);
-
     }
+
+        
     private void HandleSprite(float moveX)
     {
         PlayerAnimator.SetBool("IsWalk", Mathf.Abs(moveX) > 0.1f);
@@ -101,6 +104,10 @@ public class Player : MonoBehaviour
             jumpMultiplier = 0;
         }
         rb.AddForce(Vector2.up * (jumpForce * jumpMultiplier), ForceMode2D.Impulse);
+        if(jumpMultiplier > 0)
+        {
+            audioManager.PlaySound(0);
+        }
     }
 
     private void ToggleScaling()
