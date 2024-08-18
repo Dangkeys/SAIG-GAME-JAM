@@ -7,8 +7,12 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rigid;
     [SerializeField] private float speed;
     [SerializeField] private short visionDistance;
-    [SerializeField] protected List<GameObject> players;
+    protected Player[] players;
     private CapsuleCollider2D capsuleCollider;
+    private void Awake()
+    {
+        players = FindObjectsOfType<Player>();
+    }
 
     private void Start()
     {
@@ -42,7 +46,7 @@ public class Enemy : MonoBehaviour
 
     private void ChangeDirection(bool goLeft)
     {
-        if(goLeft)
+        if (goLeft)
         {
             speed = (speed < 0) ? -speed : speed;
         }
@@ -91,7 +95,7 @@ public class Enemy : MonoBehaviour
 
     protected int ReadyToUseSkill()
     {
-        for (int i = 0; i < players.Count; i++)
+        for (int i = 0; i < players.Length; i++)
         {
             Vector3 playerPosition = players[i].transform.position;
 
