@@ -9,8 +9,13 @@ public class Dealer : Enemy
 
     protected override void Attack(int indexPlayer)
     {
+        
         if(Time.timeSinceLevelLoad > time + cooldown)
         {
+            if(players[indexPlayer] == null)
+            {
+                return;
+            }
             InitAmmo(players[indexPlayer].transform.position - transform.position);
             time = Time.timeSinceLevelLoad;
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AmmoMove : MonoBehaviour
 {
-    private uint speed = 5;
+    [SerializeField]private uint speed = 1;
     private Vector3 target;
     private CircleCollider2D circleCollider2D;
 

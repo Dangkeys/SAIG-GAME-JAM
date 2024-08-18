@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437466663641791237}
   - component: {fileID: 4104573956849606864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8661183727245419081}
   - component: {fileID: 7625416498277742206}
   - component: {fileID: 127763577008491280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,12 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  visionDistance: 2
-  players:
-  - {fileID: 0}
+  visionDistance: 20
   ammoPrefab: {fileID: 5700706172892273596, guid: f06ae4399c2fb6e46bea1ff4203830c2, type: 3}
   cooldown: 5
-  ammoFolder: {fileID: 7898664141219796800, guid: f06ae4399c2fb6e46bea1ff4203830c2, type: 3}
+  ammoFolder: {fileID: 2712783525596427301}
 --- !u!70 &7625416498277742206
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

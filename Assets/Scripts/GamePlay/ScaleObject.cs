@@ -1,3 +1,4 @@
+
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -9,7 +10,10 @@ public class ScaleObject : MonoBehaviour
     [field: SerializeField] public float totalScaleTime { get; private set; } = 5f;
     [field: SerializeField] public bool isScaled { get; private set; } = false;
     [field: SerializeField] public TextMeshPro remainingTimeText;
+    [field: SerializeField] public Sprite MacroSprite { get; private set; }
 
+    [field:SerializeField] public Sprite MicroSprite { get; private set; }
+    [field:SerializeField] public Sprite OriginalSprite { get; private set; }
     private Vector3 originalScale;
     private float scaleTimer;
 
@@ -38,7 +42,7 @@ public class ScaleObject : MonoBehaviour
     {
         isScaled = true;
         Scale = player.isPlayerOne ? 2f : 0.5f;
-        SpriteRenderer.color = player.isPlayerOne ? Color.green : Color.yellow;
+        SpriteRenderer.sprite = player.isPlayerOne ? MacroSprite : MicroSprite;
         transform.localScale = new Vector3(Scale*originalScale.x, Scale*originalScale.y, 1);
         StartCoroutine(ScaleTimer());
     }
@@ -65,7 +69,7 @@ public class ScaleObject : MonoBehaviour
     private void ResetScale()
     {
         transform.localScale = originalScale;
-        SpriteRenderer.color = Color.white; // Reset to default color
+        SpriteRenderer.sprite = OriginalSprite; // Reset to default color
         isScaled = false;
         scaleTimer = totalScaleTime; // Reset the timer
         remainingTimeText.gameObject.SetActive(false); // Hide the text again
