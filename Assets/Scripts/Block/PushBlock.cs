@@ -3,33 +3,39 @@ using UnityEngine;
 public class PushBlock : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] private Vector2 scale;
+    private BoxCollider2D boxCollider;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.localScale.x > scale.x && collision.transform.localScale.y > scale.y)
+        if (collision.collider is CapsuleCollider2D capsuleCollider2D)
         {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.transform.localScale.x > scale.x && collision.transform.localScale.y > scale.y)
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            if (collision.gameObject.TryGetComponent(out Player player))
+            {
+                if (capsuleCollider2D.size.y * collision.transform.localScale.y >= boxCollider.size.y * transform.localScale.y)
+                {
+                    rb.mass = 1f;
+                }
+                else
+                {
+                    rb.mass = 1000f;
+                }
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.transform.localScale.x > scale.x && collision.transform.localScale.y > scale.y)
+        if (collision.collider is CapsuleCollider2D capsuleCollider2D)
         {
-            rb.bodyType = RigidbodyType2D.Static;
+            if (collision.gameObject.TryGetComponent(out Player player))
+            {
+               rb.mass = 1000f;
+            }
         }
     }
 }
