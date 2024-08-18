@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9914f31d18184f04cb61c3bd116c9a36
+guid: 46454ed8bdca25940948cd0f5859f585
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 512
-  spriteBorder: {x: 105, y: 103, z: 101, w: 101}
+  spriteBorder: {x: 61, y: 203, z: 43, w: 218}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_1421_0
+      name: HoverButton_0
       rect:
         serializedVersion: 2
-        x: 105
-        y: 105
-        width: 307
-        height: 306
+        x: 4
+        y: 144
+        width: 508
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9773d08cf20f7194bb4aa853674725b6
-      internalID: 235092627
+      spriteID: 017b6e344d40d3d47b563914df88a869
+      internalID: 699865050
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IMG_1421_0: 235092627
+      HoverButton_0: 699865050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
