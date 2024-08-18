@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Dealer : Enemy
@@ -7,21 +6,8 @@ public class Dealer : Enemy
     [SerializeField] private uint cooldown;
     [SerializeField] private Transform ammoFolder;
     private float time = 0;
-    private void FixedUpdate()
-    {
-        int indexPlayer = ReadyToUseSkill();
-        if (indexPlayer >= 0)
-        {
-            StopWalk();
-            Attack(indexPlayer);
-        }
-        else
-        {
-            Walk();
-        }
-    }
 
-    private void Attack(int indexPlayer)
+    protected override void Attack(int indexPlayer)
     {
         if(Time.timeSinceLevelLoad > time + cooldown)
         {

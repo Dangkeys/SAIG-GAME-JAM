@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,6 +13,25 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         initValue();
+    }
+
+    private void FixedUpdate()
+    {
+        int indexPlayer = ReadyToUseSkill();
+        if (indexPlayer >= 0)
+        {
+            StopWalk();
+            Attack(indexPlayer);
+        }
+        else
+        {
+            Walk();
+        }
+    }
+
+    protected virtual void Attack(int indexPlayer)
+    {
+
     }
 
     private void initValue()
