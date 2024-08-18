@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    [SerializeField] private bool isActive = false;
+    public bool isActive { get; private set; } = false;
     private bool working = false;
     private bool goRight = false;
     private BoxCollider2D boxCollider2D;
@@ -16,7 +16,6 @@ public class Lever : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Z Rotation: " + transform.eulerAngles.z);
         if (working)
         {
             ChangeAngle();

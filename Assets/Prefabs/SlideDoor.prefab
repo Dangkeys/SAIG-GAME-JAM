@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 505214297404433633}
   - component: {fileID: 223262322837299799}
   m_Layer: 0
-  m_Name: Door
+  m_Name: SlideDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,4 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slide: 0
   distance: 5
-  isActive: 0
+  button: 

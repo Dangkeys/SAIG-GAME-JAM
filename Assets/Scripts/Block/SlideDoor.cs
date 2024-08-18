@@ -1,6 +1,6 @@
-using TMPro;
+using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SlideDoor : MonoBehaviour
 {
@@ -11,7 +11,9 @@ public class SlideDoor : MonoBehaviour
     [SerializeField] private direction slide;
     [SerializeField] private float distance;
     private Vector3 startTransform;
-    [SerializeField] private bool isActive = false;
+    [SerializeField] private List<HoldButton> holdButton;
+    [SerializeField] private List<Lever> lever;
+    private bool isActive = false;
     private Vector3 targetPosition;
     void Start()
     {
@@ -21,7 +23,25 @@ public class SlideDoor : MonoBehaviour
 
     void Update()
     {
+        isActive = CheckIsActive();
         DoorSlide();
+    }
+
+    private bool CheckIsActive()
+    {
+        foreach (HoldButton button in holdButton)
+        {
+            if (button.isActive)
+                return true;
+        }
+
+        foreach (Lever lever in lever)
+        {
+            if (lever.isActive)
+                return true;
+        }
+
+        return false;
     }
 
     private void DoorSlide()
