@@ -14,6 +14,12 @@ public class Door : MonoBehaviour
     private static Player playerTwo;
 
     private static bool playersSnapped = false; // Flag to check if players have already been snapped
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,6 +66,7 @@ public class Door : MonoBehaviour
         {
             SnapPlayersToDoors();
             StopPlayersMovement();
+            audioManager.PlaySound(4);
             StartCoroutine(WaitAndChangeScene());
         }
     }
