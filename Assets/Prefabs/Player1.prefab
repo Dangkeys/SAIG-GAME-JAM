@@ -165,11 +165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   jumpForce: 10
-  groundCheckTransform: {fileID: 0}
+  groundCheckTransform: {fileID: 7460638700490554683}
   groundCheckRadius: 0.2
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   player2JumpForceMultiplier: 0.3
   isPlayerOne: 1
   minimumScale: 0.5
