@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7694330214466355289}
   - component: {fileID: 4493441899892378824}
+  - component: {fileID: 6021211719942558752}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6021211719942558752
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292027538426362665}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 516c555c2ef8e434bbae39e9e869339d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &345210236611248133
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +140,7 @@ Transform:
   m_Children:
   - {fileID: 7460638700490554683}
   - {fileID: 7694330214466355289}
+  - {fileID: 5840229191088450183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &69288781130040922
@@ -202,8 +225,10 @@ MonoBehaviour:
     m_Bits: 64
   player2JumpForceMultiplier: 0.3
   minimumScale: 0.5
-  scaleUpFactor: 1.5
+  scaleUpFactor: 2.5
   massScaleMultiplier: 1
+  <PlayerSprite>k__BackingField: {fileID: 4493441899892378824}
+  <PlayerAnimator>k__BackingField: {fileID: 6021211719942558752}
   <isPlayerOne>k__BackingField: 1
 --- !u!1 &603176837216075324
 GameObject:
