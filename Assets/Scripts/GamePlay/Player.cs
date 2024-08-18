@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     [Header("References")]
     private Rigidbody2D rb;
     private Vector2 movementInput;
+    [field: SerializeField] public SpriteRenderer PlayerSprite { get; private set; }
+    [field: SerializeField] public Animator PlayerAnimator { get; private set; }
 
     [Header("State")]
     private bool isOnGround;
@@ -54,10 +56,26 @@ public class Player : MonoBehaviour
     private void ProcessMovement()
     {
         float moveX = isPlayerOne ? Input.GetAxis("Horizontal") : Input.GetAxis("Player2Horizontal");
+
         movementInput = new Vector2(moveX, rb.velocity.y);
         audioManager.WalkingSound(moveX != 0, isPlayerOne);
     }
 
+        HandleSprite(moveX);
+
+    }
+    private void HandleSprite(float moveX)
+    {
+        PlayerAnimator.SetBool("IsWalk", Mathf.Abs(moveX) > 0.1f);
+        if (moveX > 0)
+        {
+            PlayerSprite.flipX = false; // Face right
+        }
+        else if (moveX < 0)
+        {
+            PlayerSprite.flipX = true;  // Face left
+        }
+    }
     private void ProcessJump()
     {
         if (isOnGround && Input.GetKeyDown(GetJumpKey()))
