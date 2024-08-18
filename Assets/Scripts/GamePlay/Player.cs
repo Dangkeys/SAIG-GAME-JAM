@@ -59,11 +59,10 @@ public class Player : MonoBehaviour
 
         movementInput = new Vector2(moveX, rb.velocity.y);
         audioManager.WalkingSound(moveX != 0, isPlayerOne);
-    }
-
         HandleSprite(moveX);
-
     }
+
+        
     private void HandleSprite(float moveX)
     {
         PlayerAnimator.SetBool("IsWalk", Mathf.Abs(moveX) > 0.1f);
