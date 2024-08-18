@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class Door : MonoBehaviour
 {
     [SerializeField] private bool isPlayerOneDoor = true;
-    [SerializeField] private Transform snapPosition; // Position where the player will snap to
-
+    [SerializeField] private Transform snapPosition;
+    [SerializeField] private Sprite noPlayerOnDoorSprite;
+    [SerializeField] private Sprite playerOnDoorSprite;
+    [SerializeField]  SpriteRenderer spriteRenderer;   
     private static bool isPlayerOneOnDoor = false;
     private static bool isPlayerTwoOnDoor = false;
 
@@ -23,11 +27,13 @@ public class Door : MonoBehaviour
             {
                 isPlayerOneOnDoor = true;
                 playerOne = player;
+                spriteRenderer.sprite = playerOnDoorSprite;
             }
             else if (!isPlayerOneDoor && !player.isPlayerOne)
             {
                 isPlayerTwoOnDoor = true;
                 playerTwo = player;
+                spriteRenderer.sprite = playerOnDoorSprite;
             }
         }
 
@@ -42,11 +48,13 @@ public class Door : MonoBehaviour
             {
                 isPlayerOneOnDoor = false;
                 playerOne = null;
+                spriteRenderer.sprite = noPlayerOnDoorSprite;
             }
             else if (!isPlayerOneDoor && !player.isPlayerOne)
             {
                 isPlayerTwoOnDoor = false;
                 playerTwo = null;
+                spriteRenderer.sprite = noPlayerOnDoorSprite;
             }
 
             // Reset the snap flag if any player exits the door
