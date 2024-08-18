@@ -12,18 +12,21 @@ public class Player : MonoBehaviour
     [Header("Player 2 Settings")]
     [SerializeField] private float player2JumpForceMultiplier = 0.3f;
 
+
     [Header("Scaling Settings")]
-    [SerializeField] private bool isPlayerOne = true;
     [SerializeField] private float minimumScale = 0.5f;
     [SerializeField] private float defaultScale = 1f;
     [SerializeField] private float scaleUpFactor = 3f;
     [SerializeField] private float massScaleMultiplier = 1f;
 
+    [Header("References")]
     private Rigidbody2D rb;
     private Vector2 movementInput;
+    [Header("State")]
     private bool isOnGround;
     private Vector3 initialScale;
     private bool isScaled = false;
+    [field: SerializeField] public bool isPlayerOne { get; private set; }
 
     private void Start()
     {
@@ -132,5 +135,10 @@ public class Player : MonoBehaviour
     private bool IsOnGround(Collision2D collision)
     {
         return (groundLayerMask & (1 << collision.gameObject.layer)) != 0;
+    }
+
+    public void Die()
+    {
+        SceneManager.Instance.ReloadCurrentScene();
     }
 }
