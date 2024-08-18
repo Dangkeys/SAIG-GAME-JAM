@@ -6,24 +6,25 @@ public class Player : MonoBehaviour
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private Transform groundCheckTransform;
-    [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayerMask;
 
     [Header("Player 2 Settings")]
     [SerializeField] private float player2JumpForceMultiplier = 0.3f;
 
     [Header("Scaling Settings")]
-    [SerializeField] private bool isPlayerOne = true;
     [SerializeField] private float minimumScale = 0.5f;
-    [SerializeField] private float defaultScale = 1f;
     [SerializeField] private float scaleUpFactor = 3f;
     [SerializeField] private float massScaleMultiplier = 1f;
 
+    [Header("References")]
     private Rigidbody2D rb;
     private Vector2 movementInput;
+
+    [Header("State")]
     private bool isOnGround;
     private Vector3 initialScale;
     private bool isScaled = false;
+    [field: SerializeField] public bool isPlayerOne { get; private set; }
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckIfOnGround();
         ApplyMovement();
     }
 
@@ -56,7 +58,7 @@ public class Player : MonoBehaviour
 
     private void ProcessJump()
     {
-        if (isOnGround && (Input.GetKeyDown(GetJumpKey())))
+        if (isOnGround && Input.GetKeyDown(GetJumpKey()))
         {
             ExecuteJump();
         }
@@ -78,6 +80,10 @@ public class Player : MonoBehaviour
     private void ExecuteJump()
     {
         float jumpMultiplier = isPlayerOne || !isScaled ? 1 : player2JumpForceMultiplier;
+        if (isPlayerOne && isScaled)
+        {
+            jumpMultiplier = 0;
+        }
         rb.AddForce(Vector2.up * (jumpForce * jumpMultiplier), ForceMode2D.Impulse);
     }
 
@@ -113,24 +119,14 @@ public class Player : MonoBehaviour
         return isPlayerOne ? KeyCode.S : KeyCode.DownArrow;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void CheckIfOnGround()
     {
-        if (IsOnGround(collision))
-        {
-            isOnGround = true;
-        }
+        isOnGround = Physics2D.OverlapCircle(groundCheckTransform.position, 0.1f, groundLayerMask);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (IsOnGround(collision))
-        {
-            isOnGround = false;
-        }
-    }
 
-    private bool IsOnGround(Collision2D collision)
+    public void Die()
     {
-        return (groundLayerMask & (1 << collision.gameObject.layer)) != 0;
+        SceneManager.Instance.ReloadCurrentScene();
     }
 }

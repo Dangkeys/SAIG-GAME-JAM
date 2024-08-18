@@ -46,13 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentSceneName>k__BackingField: 
   <Scenes>k__BackingField:
-  - SceneName: TajMainMenuScene
+  - SceneName: MainMenu
     BuildIndex: 0
   - SceneName: SelectScene
     BuildIndex: 1
-  - SceneName: TajScene1
+  - SceneName: Level1
     BuildIndex: 2
-  - SceneName: TajScene2
+  - SceneName: Level2
     BuildIndex: 3
-  - SceneName: TajScene2
-    BuildIndex: 4
