@@ -7,11 +7,17 @@ public class HoldButton : MonoBehaviour
     [SerializeField] private bool isActive = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        isActive = true;
+        if (collision.gameObject.TryGetComponent(out Player player))
+        {
+            isActive = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isActive = false;
+        if (collision.gameObject.TryGetComponent(out Player player))
+        {
+            isActive = false;
+        }
     }
 }
