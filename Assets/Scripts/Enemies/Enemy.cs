@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private short visionDistance;
     protected Player[] players;
     private CapsuleCollider2D capsuleCollider;
+    private GameObject isTracking = null;
+    private SpriteRenderer spriteRenderer;
     private void Awake()
     {
         players = FindObjectsOfType<Player>();
@@ -42,16 +44,19 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void ChangeDirection(bool goLeft)
     {
         if (goLeft)
         {
+            spriteRenderer.flipX = false;
             speed = (speed < 0) ? -speed : speed;
         }
         else
         {
+            spriteRenderer.flipX = true;
             speed = (speed > 0) ? -speed : speed;
         }
     }
@@ -89,6 +94,21 @@ public class Enemy : MonoBehaviour
         {
             ChangeDirection(false);
         }
+        else if(isTracking != null)
+        {
+            if(isTracking.transform.position.x >= transform.position.x)
+            {
+                ChangeDirection(true);
+            }
+            else if(isTracking.transform.position.x < transform.position.x)
+            {
+                ChangeDirection(false);
+            }
+            if(isTracking.transform.position.x < transform.position.x - visionDistance || isTracking.transform.position.x > transform.position.x + visionDistance)
+            {
+                isTracking = null;
+            }
+        }
         Vector2 movement = new Vector2(speed * Time.fixedDeltaTime * Time.timeScale, 0);
         rigid.velocity = movement;
     }
@@ -104,6 +124,7 @@ public class Enemy : MonoBehaviour
 
             if (isPlayerInVisionRange)
             {
+                isTracking = players[i].gameObject;
                 return i;
             }
         }
