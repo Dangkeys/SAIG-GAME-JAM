@@ -16,23 +16,17 @@ public class HoldButton : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Player player))
+        if (!isActive)
         {
-            if (!isActive)
-            {
-                isActive = true;
-                audioManager.PlaySound(3);
-            }
-            SpriteRenderer.sprite = ActiveSprite;
+            isActive = true;
+            audioManager.PlaySound(3);
         }
+        SpriteRenderer.sprite = ActiveSprite;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Player player))
-        {
-            isActive = false;
-            SpriteRenderer.sprite = InactiveSprite;
-        }
+        isActive = false;
+        SpriteRenderer.sprite = InactiveSprite;
     }
 }
