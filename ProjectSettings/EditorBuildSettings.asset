@@ -24,9 +24,39 @@ EditorBuildSettings:
     path: Assets/Scenes/Tajdang's Scene/Test Scene.unity
     guid: e918ba5ae6e5eaa48aa86c9d0edee704
   - enabled: 1
-    path: Assets/Scenes/GameScenes/Level1.unity
-    guid: d3aa2021f427803438d40fda40add4ef
+    path: Assets/Scenes/GameScenes/Level 1.unity
+    guid: 013e801bd1fc7304c8adca242ccf780c
   - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 2.unity
+    guid: 302c00671fde63a49a4486646b3eea45
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 3.unity
+    guid: 6fc16c18705c67b4d9c69dc9ead57cad
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 4.unity
+    guid: ed9d5c877ce55f543a05283be6976ba3
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 5.unity
+    guid: ef25865e6d0ce5b4d90cde3d1f18c34d
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 6.unity
+    guid: 9ff5eefe466e3bc439631c9ff1b8eb67
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 7.unity
+    guid: 3a556bf5ac5ad66468875df793b1d266
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 8.unity
+    guid: 4ad21f6057124354c98750430c7a5838
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 9.unity
+    guid: 58f22e48d7930c4418cec3ee14611ab0
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 10.unity
+    guid: fc2544a9009df9f4bb6031c26a48b6bd
+  - enabled: 0
+    path: Assets/Scenes/GameScenes/Level.unity
+    guid: d3aa2021f427803438d40fda40add4ef
+  - enabled: 0
     path: Assets/Scenes/GameScenes/Level2.unity
     guid: de9ccb10dccffe04a8b92cbfbabe5d87
   - enabled: 0

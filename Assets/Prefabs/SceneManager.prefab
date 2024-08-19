@@ -50,7 +50,23 @@ MonoBehaviour:
     BuildIndex: 0
   - SceneName: SelectScene
     BuildIndex: 1
-  - SceneName: Level1
+  - SceneName: Level 1
     BuildIndex: 2
-  - SceneName: Level2
+  - SceneName: Level 2
     BuildIndex: 3
+  - SceneName: Level 3
+    BuildIndex: 4
+  - SceneName: Level 4
+    BuildIndex: 5
+  - SceneName: Level 5
+    BuildIndex: 6
+  - SceneName: Level 6
+    BuildIndex: 7
+  - SceneName: Level 7
+    BuildIndex: 8
+  - SceneName: Level 8
+    BuildIndex: 9
+  - SceneName: Level 9
+    BuildIndex: 10
+  - SceneName: Level 10
+    BuildIndex: 11

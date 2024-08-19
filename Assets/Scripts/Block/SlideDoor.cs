@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.Utilities;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
@@ -6,13 +7,13 @@ public class SlideDoor : MonoBehaviour
 {
     enum direction
     {
-        top=0, down=1, left=2, right=3,
+        top = 0, down = 1, left = 2, right = 3,
     }
     [SerializeField] private direction slide;
     [SerializeField] private float distance;
     private Vector3 startTransform;
-    [SerializeField] private List<HoldButton> holdButton;
-    [SerializeField] private List<Lever> lever;
+    [SerializeField] private List<HoldButton> holdButton = new List<HoldButton>();
+    [SerializeField] private List<Lever> lever = new List<Lever>();
     private bool isActive = false;
     private Vector3 targetPosition;
     void Start()
@@ -29,20 +30,27 @@ public class SlideDoor : MonoBehaviour
 
     private bool CheckIsActive()
     {
-        foreach (HoldButton button in holdButton)
+        if (holdButton.Count > 0)
         {
-            if (button.isActive)
-                return true;
+            foreach (HoldButton button in holdButton)
+            {
+                if (button != null && button.isActive)
+                    return true;
+            }
         }
 
-        foreach (Lever lever in lever)
+        if (lever.Count > 0)
         {
-            if (lever.isActive)
-                return true;
+            foreach (Lever lever in lever)
+            {
+                if (lever != null && lever.isActive)
+                    return true;
+            }
         }
 
         return false;
     }
+
 
     private void DoorSlide()
     {
