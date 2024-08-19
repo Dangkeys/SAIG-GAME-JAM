@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <musicSource>k__BackingField: {fileID: 0}
+  <walk1Source>k__BackingField: {fileID: 0}
+  <walk2Source>k__BackingField: {fileID: 0}
   <sfxSource>k__BackingField: {fileID: 0}
   backGroundMusic:
   - {fileID: 8300000, guid: b31f3d431aa278e4d8ef4c0e1c2a9571, type: 3}
@@ -52,8 +54,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2a91d3667aaf5e94ebdada3b0c53cbe5, type: 3}
   - {fileID: 8300000, guid: 266c03f3bf92adc4092fbb9c591a43fd, type: 3}
   - {fileID: 8300000, guid: 2a91d3667aaf5e94ebdada3b0c53cbe5, type: 3}
+  walkingSound: []
   sounds:
-  - {fileID: 8300000, guid: 475f27b711387f940a11eefa72f30404, type: 3}
+  - {fileID: 0}
   - {fileID: 8300000, guid: a9e84e57d383a5a49a0407e21ec8dcce, type: 3}
   - {fileID: 8300000, guid: 1147c2f841f05b44b9a98079de2f860a, type: 3}
   - {fileID: 8300000, guid: 13958a7205acfa14c8298be05b955119, type: 3}
