@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform snapPosition;
     [SerializeField] private Sprite noPlayerOnDoorSprite;
     [SerializeField] private Sprite playerOnDoorSprite;
-    [SerializeField]  SpriteRenderer spriteRenderer;   
+    [SerializeField] SpriteRenderer spriteRenderer;
     private static bool isPlayerOneOnDoor = false;
     private static bool isPlayerTwoOnDoor = false;
 
@@ -131,7 +131,12 @@ public class Door : MonoBehaviour
     private IEnumerator WaitAndChangeScene()
     {
         yield return new WaitForSeconds(.5f);
-        PlayerPrefs.SetInt("Win", SceneManager.Instance.GetCurrentScene());
+
+        int currentScene = SceneManager.Instance.GetCurrentScene();
+        if (PlayerPrefs.GetInt("Win") < currentScene)
+        {
+            PlayerPrefs.SetInt("Win", currentScene);
+        }
         SceneManager.Instance.LoadNextScene();
     }
 }
