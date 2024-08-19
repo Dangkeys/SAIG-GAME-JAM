@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private short visionDistance;
     protected Player[] players;
     private CapsuleCollider2D capsuleCollider;
+    private GameObject isTracking = null;
+    private SpriteRenderer spriteRenderer;
     private void Awake()
     {
         players = FindObjectsOfType<Player>();
@@ -22,9 +24,9 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         int indexPlayer = ReadyToUseSkill();
+        Walk();
         if (indexPlayer >= 0)
         {
-            StopWalk();
             Attack(indexPlayer);
         }
         else
@@ -42,16 +44,19 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void ChangeDirection(bool goLeft)
     {
         if (goLeft)
         {
+            spriteRenderer.flipX = false;
             speed = (speed < 0) ? -speed : speed;
         }
         else
         {
+            spriteRenderer.flipX = true;
             speed = (speed > 0) ? -speed : speed;
         }
     }
@@ -72,13 +77,9 @@ public class Enemy : MonoBehaviour
         return colliderAtBottomRight;
     }
 
-    protected void StopWalk()
-    {
-        rigid.velocity = Vector2.zero;
-    }
-
     protected void Walk()
     {
+        isTracking = Tracking();
         Collider2D left = GetColliderAtBottomLeft(capsuleCollider);
         Collider2D right = GetColliderAtBottomRight(capsuleCollider);
         if (left == null)
@@ -89,8 +90,39 @@ public class Enemy : MonoBehaviour
         {
             ChangeDirection(false);
         }
+        else if(isTracking != null)
+        {
+            if(isTracking.transform.position.x >= transform.position.x)
+            {
+                ChangeDirection(true);
+            }
+            else if(isTracking.transform.position.x < transform.position.x)
+            {
+                ChangeDirection(false);
+            }
+            if(isTracking.transform.position.x < transform.position.x - visionDistance || isTracking.transform.position.x > transform.position.x + visionDistance)
+            {
+                isTracking = null;
+            }
+        }
         Vector2 movement = new Vector2(speed * Time.fixedDeltaTime * Time.timeScale, 0);
         rigid.velocity = movement;
+    }
+
+    private GameObject Tracking()
+    {
+        float distance = visionDistance;
+        GameObject isTracking = null;
+        foreach(var player in players)
+        {
+            float newDistance = Vector3.Distance(transform.position, player.transform.position);
+            if (distance > newDistance)
+            {
+                distance = newDistance;
+                isTracking = player.gameObject;
+            }
+        }
+        return isTracking;
     }
 
     protected int ReadyToUseSkill()
