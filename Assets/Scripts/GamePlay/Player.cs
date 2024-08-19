@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private Transform groundCheckTransform;
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private LayerMask macroBlockLayerMask;
 
     [Header("Player 2 Settings")]
     [SerializeField] private float player2JumpForceMultiplier = 0.3f;
@@ -156,7 +157,10 @@ public class Player : MonoBehaviour
         isOnGround = Physics2D.OverlapCircle(groundCheckTransform.position, 0.1f, groundLayerMask);
     }
 
-
+    public bool CheckIfOnMacroBlock()
+    {
+        return Physics2D.OverlapCircle(groundCheckTransform.position, 0.1f, macroBlockLayerMask);
+    }
     public void Die()
     {
         SceneManager.Instance.ReloadCurrentScene();
