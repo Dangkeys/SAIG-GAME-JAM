@@ -7,11 +7,13 @@ public class AmmoMove : MonoBehaviour
     private Vector2 direction;
     private CircleCollider2D circleCollider2D;
     private Rigidbody2D rb;
+    private AudioManager audioManager;
 
     private void Start()
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        audioManager = AudioManager.Instance;
     }
     private void FixedUpdate()
     {
@@ -39,6 +41,7 @@ public class AmmoMove : MonoBehaviour
             {
                 player.Die();
             }
+            audioManager.PlaySound(12);
             Destroy(gameObject);
         }
     }
