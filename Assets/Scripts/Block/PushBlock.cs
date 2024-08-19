@@ -18,6 +18,7 @@ public class PushBlock : MonoBehaviour
             {
                 if (capsuleCollider2D.size.y * collision.transform.localScale.y >= boxCollider.size.y * transform.localScale.y)
                 {
+                    if(player.isPlayerOne && player.CheckIfOnMacroBlock()) return;
                     rb.mass = 1f;
                 }
                 else
@@ -34,7 +35,7 @@ public class PushBlock : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out Player player))
             {
-               rb.mass = 1000f;
+                rb.mass = 1000f;
             }
         }
     }

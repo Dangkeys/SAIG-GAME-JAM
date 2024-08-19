@@ -25,7 +25,7 @@ public class Lever : MonoBehaviour
 
     private void ChangeAngle()
     {
-        if(goRight)
+        if (goRight)
         {
             transform.Rotate(Vector3.back);
             if (transform.eulerAngles.z >= 310 && transform.eulerAngles.z <= 315)
@@ -56,13 +56,13 @@ public class Lever : MonoBehaviour
         {
             Collider2D topLeft = GetColliderAtTopLeft(boxCollider2D);
             Collider2D topRight = GetColliderAtTopRight(boxCollider2D);
-            if(topLeft && !isActive)
+            if (topLeft && !isActive)
             {
                 goRight = true;
                 working = true;
                 audioManager.PlaySound(2);
             }
-            else if(topRight && isActive)
+            else if (topRight && isActive)
             {
                 goRight = false;
                 working = true;
@@ -86,6 +86,26 @@ public class Lever : MonoBehaviour
 
         return colliderAtTopRight;
     }
+
+    private void OnDrawGizmos()
+    {
+        // Initialize boxCollider2D if it's null (for edit mode)
+        if (boxCollider2D == null)
+        {
+            boxCollider2D = GetComponent<BoxCollider2D>();
+        }
+
+        if (boxCollider2D == null) return;
+
+        // Draw top-left gizmo
+        Vector2 topLeft = new Vector2(boxCollider2D.bounds.min.x, boxCollider2D.bounds.max.y);
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(topLeft, 0.1f);
+
+        // Draw top-right gizmo
+        Vector2 topRight = new Vector2(boxCollider2D.bounds.max.x, boxCollider2D.bounds.max.y);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(topRight, 0.1f);
+    }
+
 }
-
-
