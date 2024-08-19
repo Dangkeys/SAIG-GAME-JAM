@@ -132,9 +132,9 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             Vector3 playerPosition = players[i].transform.position;
-
-            bool isPlayerInVisionRange = (speed < 0 && transform.position.x - visionDistance <= playerPosition.x && transform.position.x >= playerPosition.x) ||
-                                         (speed > 0 && transform.position.x + visionDistance >= playerPosition.x && transform.position.x <= playerPosition.x);
+            bool isUnderEnemy = transform.position.y < playerPosition.y;
+            bool isPlayerInVisionRange = (speed < 0 && transform.position.x - visionDistance <= playerPosition.x && transform.position.x >= playerPosition.x && isUnderEnemy) ||
+                                         (speed > 0 && transform.position.x + visionDistance >= playerPosition.x && transform.position.x <= playerPosition.x && isUnderEnemy);
 
             if (isPlayerInVisionRange)
             {

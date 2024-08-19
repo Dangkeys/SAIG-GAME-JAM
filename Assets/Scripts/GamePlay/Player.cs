@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         float moveX = isPlayerOne ? Input.GetAxis("Horizontal") : Input.GetAxis("Player2Horizontal");
 
         movementInput = new Vector2(moveX, rb.velocity.y);
-        audioManager.WalkingSound(moveX != 0, isPlayerOne);
+        audioManager.WalkingSound(moveX != 0 && isOnGround, isPlayerOne);
         HandleSprite(moveX);
     }
 
