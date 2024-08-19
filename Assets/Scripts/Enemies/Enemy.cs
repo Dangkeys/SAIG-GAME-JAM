@@ -24,9 +24,9 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         int indexPlayer = ReadyToUseSkill();
+        Walk();
         if (indexPlayer >= 0)
         {
-            StopWalk();
             Attack(indexPlayer);
         }
         else
@@ -77,13 +77,9 @@ public class Enemy : MonoBehaviour
         return colliderAtBottomRight;
     }
 
-    protected void StopWalk()
-    {
-        rigid.velocity = Vector2.zero;
-    }
-
     protected void Walk()
     {
+        isTracking = Tracking();
         Collider2D left = GetColliderAtBottomLeft(capsuleCollider);
         Collider2D right = GetColliderAtBottomRight(capsuleCollider);
         if (left == null)
@@ -113,6 +109,22 @@ public class Enemy : MonoBehaviour
         rigid.velocity = movement;
     }
 
+    private GameObject Tracking()
+    {
+        float distance = visionDistance;
+        GameObject isTracking = null;
+        foreach(var player in players)
+        {
+            float newDistance = Vector3.Distance(transform.position, player.transform.position);
+            if (distance > newDistance)
+            {
+                distance = newDistance;
+                isTracking = player.gameObject;
+            }
+        }
+        return isTracking;
+    }
+
     protected int ReadyToUseSkill()
     {
         for (int i = 0; i < players.Length; i++)
@@ -124,7 +136,6 @@ public class Enemy : MonoBehaviour
 
             if (isPlayerInVisionRange)
             {
-                isTracking = players[i].gameObject;
                 return i;
             }
         }
