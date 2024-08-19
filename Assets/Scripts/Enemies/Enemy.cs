@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     private GameObject isTracking = null;
     private SpriteRenderer spriteRenderer;
+    protected AudioManager audioManager;
     private void Awake()
     {
         players = FindObjectsOfType<Player>();
@@ -45,6 +46,7 @@ public class Enemy : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        audioManager = AudioManager.Instance;
     }
 
     private void ChangeDirection(bool goLeft)

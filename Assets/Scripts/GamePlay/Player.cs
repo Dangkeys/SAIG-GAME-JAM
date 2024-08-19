@@ -121,6 +121,14 @@ public class Player : MonoBehaviour
             Vector3 newScale = isPlayerOne ? initialScale * scaleUpFactor : new Vector3(minimumScale, minimumScale, 1f);
             transform.localScale = newScale;
             rb.mass = newScale.x * newScale.y * massScaleMultiplier;
+            if(isPlayerOne)
+            {
+                audioManager.PlaySound(10);
+            }
+            else
+            {
+                audioManager.PlaySound(9);
+            }
             isScaled = true;
         }
     }
@@ -129,6 +137,7 @@ public class Player : MonoBehaviour
     {
         transform.localScale = initialScale;
         rb.mass = initialScale.x * initialScale.y * massScaleMultiplier;
+        audioManager.PlaySound(11);
         isScaled = false;
     }
 

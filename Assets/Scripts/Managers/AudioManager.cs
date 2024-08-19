@@ -42,11 +42,11 @@ public class AudioManager : SingletonPersistent<AudioManager>
     {
         walk1Source.clip = walkingSound[0];
         walk1Source.loop = true;
-        walk1Source.Play();
+        walk1Source.PlayDelayed(6f);
         walk1Source.enabled = false;
         walk2Source.clip = walkingSound[1];
         walk2Source.loop = true;
-        walk2Source.Play();
+        walk2Source.PlayDelayed(6f);
         walk2Source.enabled = false;
     }
 

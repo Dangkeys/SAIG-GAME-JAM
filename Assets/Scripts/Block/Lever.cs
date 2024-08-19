@@ -7,11 +7,12 @@ public class Lever : MonoBehaviour
     private bool working = false;
     private bool goRight = false;
     private BoxCollider2D boxCollider2D;
-
+    private AudioManager audioManager;
 
     private void Start()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
+        audioManager = AudioManager.Instance;
     }
 
     private void Update()
@@ -59,11 +60,13 @@ public class Lever : MonoBehaviour
             {
                 goRight = true;
                 working = true;
+                audioManager.PlaySound(2);
             }
             else if(topRight && isActive)
             {
                 goRight = false;
                 working = true;
+                audioManager.PlaySound(2);
             }
         }
     }

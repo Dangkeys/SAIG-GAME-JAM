@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dealer : Enemy
@@ -17,6 +18,7 @@ public class Dealer : Enemy
                 return;
             }
             InitAmmo(players[indexPlayer].transform.position);
+            audioManager.PlaySound(5);
             time = Time.timeSinceLevelLoad;
         }
     }
@@ -28,6 +30,5 @@ public class Dealer : Enemy
         {
             ammoMove.SetTarget(position);
         }
-        
     }
 }
