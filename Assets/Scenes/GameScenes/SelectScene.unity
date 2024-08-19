@@ -984,7 +984,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <levelUIParent>k__BackingField: {fileID: 1406175411}
-  <levelUIPrefab>k__BackingField: {fileID: 1714826569428620314, guid: 99b04d44626ac9548b9c06e92ed9a70c, type: 3}
+  <levelUIPrefab>k__BackingField:
+  - {fileID: 1714826569428620314, guid: 99b04d44626ac9548b9c06e92ed9a70c, type: 3}
+  - {fileID: 1714826569428620314, guid: 88a6c6a66b7c64b49bea7d013ba4ed75, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

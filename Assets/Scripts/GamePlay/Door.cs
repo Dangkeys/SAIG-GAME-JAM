@@ -131,6 +131,7 @@ public class Door : MonoBehaviour
     private IEnumerator WaitAndChangeScene()
     {
         yield return new WaitForSeconds(.5f);
+        PlayerPrefs.SetInt("Win", SceneManager.Instance.GetCurrentScene());
         SceneManager.Instance.LoadNextScene();
     }
 }

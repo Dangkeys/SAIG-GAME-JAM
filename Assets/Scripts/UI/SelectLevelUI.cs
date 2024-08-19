@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SelectLevelUI : MonoBehaviour
 {
     [field: SerializeField] public Transform levelUIParent { get; private set; }
-    [field: SerializeField] public GameObject levelUIPrefab { get; private set; }
+    [field: SerializeField] public List<GameObject> levelUIPrefab { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,8 @@ public class SelectLevelUI : MonoBehaviour
     }
     private void CreateLevelUIElements()
     {
-
+        int scene = 1;
+        int current = PlayerPrefs.GetInt("Win");
         SceneManager sceneManager = SceneManager.Instance;
         foreach (SceneInfo sceneInfo in sceneManager.Scenes)
         {
@@ -35,9 +36,18 @@ public class SelectLevelUI : MonoBehaviour
             {
                 continue;
             }
-            GameObject levelUI = Instantiate(levelUIPrefab, levelUIParent);
+            GameObject levelUI;
+            if (scene <= current)
+            {
+                levelUI = Instantiate(levelUIPrefab[0], levelUIParent);
+            }
+            else
+            {
+                levelUI = Instantiate(levelUIPrefab[1], levelUIParent);
+            }
             LevelUIElement levelUIElement = levelUI.GetComponent<LevelUIElement>();
             levelUIElement.SetLevelName(sceneInfo.SceneName);
+            scene++;
             
         }
     }

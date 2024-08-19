@@ -26,6 +26,7 @@ public class SceneManager : SingletonPersistent<SceneManager>
     {
         base.Awake();
         CurrentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetInt("Win", 10);
     }
 
     public void LoadScene(string sceneName)
@@ -45,6 +46,17 @@ public class SceneManager : SingletonPersistent<SceneManager>
     public void ReloadCurrentScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(CurrentSceneName);
+    }
+
+    public int GetCurrentScene()
+    {
+        int currentSceneIndex = Scenes.FindIndex(s => s.SceneName == CurrentSceneName);
+        if (currentSceneIndex == -1)
+        {
+            Debug.LogError("Current scene is not in the list of scenes.");
+            return -1;
+        }
+        return currentSceneIndex;
     }
 
     public void LoadNextScene()
