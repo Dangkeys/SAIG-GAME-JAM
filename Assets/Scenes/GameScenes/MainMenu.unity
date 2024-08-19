@@ -906,7 +906,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Back to Main Menu : Tab
 
-    Rrestart : R
+    Restart : R
 
 '
   m_isRightToLeft: 0
