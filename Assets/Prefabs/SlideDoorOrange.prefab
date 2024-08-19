@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2a87dd8efd326f84cbc9def8176d1b0d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ec7ec6d82d4f304ab982df58e2594f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2156961234988169991}
   - component: {fileID: 2943876261856848403}
   m_Layer: 6
-  m_Name: SlideDoor
+  m_Name: SlideDoorOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
