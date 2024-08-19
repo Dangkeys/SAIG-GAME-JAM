@@ -16,7 +16,7 @@ public class Dealer : Enemy
             {
                 return;
             }
-            InitAmmo(players[indexPlayer].transform.position - transform.position);
+            InitAmmo(players[indexPlayer].transform.position);
             time = Time.timeSinceLevelLoad;
         }
     }
