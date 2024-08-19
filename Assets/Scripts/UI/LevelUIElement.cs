@@ -11,16 +11,24 @@ public class LevelUIElement : MonoBehaviour
     [field: SerializeField] public string LevelName { get; private set; }
     [field: SerializeField] public Button levelButton { get; private set; }
     [SerializeField]  TextMeshProUGUI levelNameText;
+    private int level = 0;
     void Start()
     {
         levelNameText.text = LevelName;
+        if (int.TryParse(LevelName.Split(" ")[1], out int levels))
+        {
+            level = levels;
+        }
         levelButton.onClick.AddListener(OnLevelButtonClicked);
     }
 
     private void OnLevelButtonClicked()
     {
-        SceneManager sceneManager = SceneManager.Instance;
-        sceneManager.LoadScene(LevelName);
+        if (level <= PlayerPrefs.GetInt("Win"))
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.LoadScene(LevelName);
+        }
     }
 
     public void SetLevelName(string levelName)
