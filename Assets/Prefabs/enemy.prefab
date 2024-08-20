@@ -132,9 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  visionDistance: 20
+  visionDistance: 5
   ammoPrefab: {fileID: 5700706172892273596, guid: f06ae4399c2fb6e46bea1ff4203830c2, type: 3}
-  cooldown: 5
+  cooldown: 3
   ammoFolder: {fileID: 2712783525596427301}
 --- !u!70 &7625416498277742206
 CapsuleCollider2D:

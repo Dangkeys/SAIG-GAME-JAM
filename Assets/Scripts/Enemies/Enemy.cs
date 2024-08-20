@@ -117,8 +117,9 @@ public class Enemy : MonoBehaviour
         GameObject isTracking = null;
         foreach(var player in players)
         {
+            bool isUnderEnemy = transform.position.y <= player.transform.position.y;
             float newDistance = Vector3.Distance(transform.position, player.transform.position);
-            if (distance > newDistance)
+            if (distance > newDistance && isUnderEnemy)
             {
                 distance = newDistance;
                 isTracking = player.gameObject;
