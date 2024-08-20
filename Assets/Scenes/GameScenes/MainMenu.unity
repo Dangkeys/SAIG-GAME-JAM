@@ -4406,6 +4406,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6450493096639743452, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7454693064516473573, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
       propertyPath: PauseButton
       value: 
