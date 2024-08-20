@@ -9,9 +9,11 @@ public class AudioManager : SingletonPersistent<AudioManager>
     [field: SerializeField] public AudioSource walk1Source { get; private set; }
     [field: SerializeField] public AudioSource walk2Source { get; private set; }
     [field: SerializeField] public AudioSource sfxSource { get; private set; }
+    private const string SFXVolumeKey = "SFXVolume";
 
     [BoxGroup("Music")]
     [SerializeField] private List<AudioClip> backGroundMusic;
+    private const string MusicVolumeKey = "MusicVolume";
 
     [BoxGroup("SFX")]
     [SerializeField] private List<AudioClip> walkingSound;
@@ -22,8 +24,17 @@ public class AudioManager : SingletonPersistent<AudioManager>
     {
         base.Awake();
         InitAudio();
+        if (PlayerPrefs.HasKey(MusicVolumeKey))
+        {
+            float savedVolume = PlayerPrefs.GetFloat(MusicVolumeKey);
+            SetVolumeBackground(savedVolume);
+        }
+        if (PlayerPrefs.HasKey(SFXVolumeKey))
+        {
+            float savedVolume = PlayerPrefs.GetFloat(SFXVolumeKey);
+            SetVolume(savedVolume);
+        }
     }
-
     private void InitAudio()
     {
         musicSource = gameObject.AddComponent<AudioSource>();
@@ -88,10 +99,22 @@ public class AudioManager : SingletonPersistent<AudioManager>
     {
         StopSound();
         sfxSource.volume = volume;
+        walk1Source.volume = volume;
+        walk2Source.volume = volume;
     }
 
     public void SetVolumeBackground(float volume)
     {
-        sfxSource.volume = volume;
+        musicSource.volume = volume;
+    }
+    public void SetVolumeAndSavedToPlayerPrefs(float volume)
+    {
+        SetVolume(volume);
+        PlayerPrefs.SetFloat(SFXVolumeKey, volume);
+    }
+    public void SetVolumeBackgroundAndSavedToPlayerPrefs(float volume)
+    {
+        SetVolumeBackground(volume);
+        PlayerPrefs.SetFloat(MusicVolumeKey, volume);
     }
 }
