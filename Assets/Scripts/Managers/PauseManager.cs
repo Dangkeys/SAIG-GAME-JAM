@@ -39,7 +39,7 @@ public class PauseManager : SingletonPersistent<PauseManager>
         ControlsUI.SetActive(false);
         Time.timeScale = 1;
     }
-    private void Pause()
+    public void Pause()
     {
         PauseUI.SetActive(true);
         Time.timeScale = 0;
