@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tajdang's Scene/SelectScene-O.unity
     guid: bc9533b5a0f42e1458378147f4d906b6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tajdang's Scene/TajMainMenuScene.unity
     guid: a4ea0aad353bea448b8fd6e2249c1256
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tajdang's Scene/TajScene1.unity
     guid: 273367efe0c8eb94ca42e8f994907170
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tajdang's Scene/TajScene2.unity
     guid: e0be0b832f647aa4a847e2fe294d991a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tajdang's Scene/Test Scene.unity
     guid: e918ba5ae6e5eaa48aa86c9d0edee704
   - enabled: 1
@@ -62,7 +62,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GameScenes/MainMenu.unity
     guid: ce60ca97e218dc4469e5ad2b5dc7176d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hom's Scenes/Mainmenu.unity
     guid: 7e6ee190573d65a48ac6932fa085e66e
   - enabled: 1
