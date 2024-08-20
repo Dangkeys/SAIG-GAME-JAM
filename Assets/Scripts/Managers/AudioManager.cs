@@ -90,7 +90,7 @@ public class AudioManager : SingletonPersistent<AudioManager>
         sfxSource.volume = volume;
     }
 
-    public void SetVolumnBackground(float volume)
+    public void SetVolumeBackground(float volume)
     {
         sfxSource.volume = volume;
     }
