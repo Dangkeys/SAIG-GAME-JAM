@@ -84,10 +84,9 @@ public class Player : MonoBehaviour
         if (isOnGround && Input.GetKey(GetJumpKey()) && !hasJumped)
         {
             ExecuteJump();
-            hasJumped = true; // Set the flag to true after jumping
+            hasJumped = true;
         }
 
-        // Reset the flag when the player is in the air
         if (!isOnGround)
         {
             hasJumped = false;
@@ -110,16 +109,21 @@ public class Player : MonoBehaviour
 
     private void ExecuteJump()
     {
+
         float jumpMultiplier = isPlayerOne || !isScaled ? 1 : player2JumpForceMultiplier;
         if (isPlayerOne && isScaled)
         {
             jumpMultiplier = 0;
         }
-        rb.AddForce(Vector2.up * (jumpForce * jumpMultiplier), ForceMode2D.Impulse);
-        if (jumpMultiplier > 0)
+        if (rb.velocity.y <= 0)
         {
-            audioManager.PlaySound(0);
+            rb.AddForce(Vector2.up * (jumpForce * jumpMultiplier), ForceMode2D.Impulse);
+            if (jumpMultiplier > 0)
+            {
+                audioManager.PlaySound(0);
+            }
         }
+
     }
 
     private void ToggleScaling()
