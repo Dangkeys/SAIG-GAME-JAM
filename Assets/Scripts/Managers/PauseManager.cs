@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class PauseManager : SingletonPersistent<PauseManager>
