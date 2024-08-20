@@ -1,24 +1,49 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
+[Serializable]
+public class SceneInfo
+{
+    public string SceneName;   // Name of the scene
+    public int BuildIndex;     // Optional: Build index of the scene
+
+    public SceneInfo(string sceneName, int buildIndex)
+    {
+        SceneName = sceneName;
+        BuildIndex = buildIndex;
+    }
+}
 
 public class SceneManager : SingletonPersistent<SceneManager>
 {
-    // Optionally, you can have a field to track the current scene
-    public string CurrentSceneName { get; private set; }
+    [field: SerializeField] public string CurrentSceneName { get; private set; }
+    [field: SerializeField] public List<SceneInfo> Scenes { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
-        
-        // Store the initial scene name
         CurrentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if(!PlayerPrefs.HasKey("Win"))
+        {    
+            PlayerPrefs.SetInt("Win", 1);
+        }
     }
 
     public void LoadScene(string sceneName)
     {
-        // Optionally, you can add a loading screen or any other logic before loading the scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-        CurrentSceneName = sceneName;
+        var scene = Scenes.Find(s => s.SceneName == sceneName);
+        if (scene != null)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(scene.SceneName);
+            CurrentSceneName = scene.SceneName;
+        }
+        else
+        {
+            Debug.LogError($"Scene '{sceneName}' not found in the list of scenes.");
+        }
     }
 
     public void ReloadCurrentScene()
@@ -26,21 +51,69 @@ public class SceneManager : SingletonPersistent<SceneManager>
         UnityEngine.SceneManagement.SceneManager.LoadScene(CurrentSceneName);
     }
 
-    public void LoadNextScene()
+    public int GetCurrentScene()
     {
-        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = (currentSceneIndex + 1) % UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneIndex);
-        CurrentSceneName = UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(nextSceneIndex).name;
+        int currentSceneIndex = Scenes.FindIndex(s => s.SceneName == CurrentSceneName);
+        if (currentSceneIndex == -1)
+        {
+            Debug.LogError("Current scene is not in the list of scenes.");
+            return -1;
+        }
+        return currentSceneIndex;
     }
 
+    public void LoadNextScene()
+    {
+        int currentSceneIndex = Scenes.FindIndex(s => s.SceneName == CurrentSceneName);
+        if (currentSceneIndex == -1)
+        {
+            Debug.LogError("Current scene is not in the list of scenes.");
+            return;
+        }
+
+        int nextSceneIndex = (currentSceneIndex + 1) % Scenes.Count;
+        LoadScene(Scenes[nextSceneIndex].SceneName);
+    }
+    public void LoadPreviousScene()
+    {
+        int currentSceneIndex = Scenes.FindIndex(s => s.SceneName == CurrentSceneName);
+        if (currentSceneIndex == -1)
+        {
+            Debug.LogError("Current scene is not in the list of scenes.");
+            return;
+        }
+
+        int previousSceneIndex = (currentSceneIndex - 1 + Scenes.Count) % Scenes.Count;
+        LoadScene(Scenes[previousSceneIndex].SceneName);
+    }
     public void QuitGame()
     {
-        // Handle quitting the game, either in the editor or the built application
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else
         Application.Quit();
         #endif
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ReloadCurrentScene();
+        }else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            LoadFirstScene();
+        }else if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadSecondScene();
+        }
+    }
+
+    private void LoadFirstScene()
+    {
+        LoadScene(Scenes[0].SceneName);
+    }
+    private void LoadSecondScene()
+    {
+        LoadScene(Scenes[1].SceneName);
     }
 }
