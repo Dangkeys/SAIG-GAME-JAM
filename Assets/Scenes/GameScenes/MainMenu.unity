@@ -2723,6 +2723,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244053481}
   m_CullTransparentMesh: 1
+--- !u!1 &1267793104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6450493096639743452, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+  m_PrefabInstance: {fileID: 1936009879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300802611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,6 +4342,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 105317835085901811, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1526988791155667838, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4397,9 +4406,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6450493096639743452, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454693064516473573, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+      propertyPath: PauseButton
+      value: 
+      objectReference: {fileID: 1267793104}
     - target: {fileID: 7787662553998174075, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157360493266095922, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157360493266095922, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -96
       objectReference: {fileID: 0}
     - target: {fileID: 8463066539442524251, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
       propertyPath: m_Name
