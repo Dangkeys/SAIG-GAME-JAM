@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1445558534487973876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4250,6 +4250,7 @@ MonoBehaviour:
   PauseUI: {fileID: 105317835085901811}
   SettingsUI: {fileID: 7787662553998174075}
   ControlsUI: {fileID: 5160520102745418782}
+  PauseButton: {fileID: 0}
 --- !u!1 &8709338496897814761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,11 +4738,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 722591546265495687, guid: 4f4861a609a6ad74082a41e988b38ca4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -80
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 722591546265495687, guid: 4f4861a609a6ad74082a41e988b38ca4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -73
+      value: -58
       objectReference: {fileID: 0}
     - target: {fileID: 722591546265495687, guid: 4f4861a609a6ad74082a41e988b38ca4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
