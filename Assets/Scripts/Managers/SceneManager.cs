@@ -26,7 +26,10 @@ public class SceneManager : SingletonPersistent<SceneManager>
     {
         base.Awake();
         CurrentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        PlayerPrefs.SetInt("Win", 10);
+        if(!PlayerPrefs.HasKey("Win"))
+        {    
+            PlayerPrefs.SetInt("Win", 1);
+        }
     }
 
     public void LoadScene(string sceneName)
