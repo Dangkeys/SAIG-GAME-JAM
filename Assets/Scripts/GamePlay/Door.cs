@@ -1,8 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
-using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class Door : MonoBehaviour
 {
