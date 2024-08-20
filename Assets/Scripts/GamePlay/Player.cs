@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     private bool isScaled = false;
     [field: SerializeField] public bool isPlayerOne { get; private set; }
     private AudioManager audioManager;
+    private bool hasJumped = false;
     private void Start()
     {
         Initialize();
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
         HandleSprite(moveX);
     }
 
-        
+
     private void HandleSprite(float moveX)
     {
         PlayerAnimator.SetBool("IsWalk", Mathf.Abs(moveX) > 0.1f);
@@ -78,12 +79,16 @@ public class Player : MonoBehaviour
     }
     private void ProcessJump()
     {
-        if (isOnGround && Input.GetKeyDown(GetJumpKey()))
+        if (isOnGround && Input.GetKey(GetJumpKey()) && !hasJumped)
         {
             ExecuteJump();
+            hasJumped = true;
+        }
+        if (!isOnGround)
+        {
+            hasJumped = false;
         }
     }
-
     private void ProcessScaling()
     {
         if (Input.GetKeyDown(GetScaleKey()) && Time.timeScale > 0)
@@ -105,7 +110,7 @@ public class Player : MonoBehaviour
             jumpMultiplier = 0;
         }
         rb.AddForce(Vector2.up * (jumpForce * jumpMultiplier), ForceMode2D.Impulse);
-        if(jumpMultiplier > 0)
+        if (jumpMultiplier > 0)
         {
             audioManager.PlaySound(0);
         }
@@ -122,7 +127,7 @@ public class Player : MonoBehaviour
             Vector3 newScale = isPlayerOne ? initialScale * scaleUpFactor : new Vector3(minimumScale, minimumScale, 1f);
             transform.localScale = newScale;
             rb.mass = newScale.x * newScale.y * massScaleMultiplier;
-            if(isPlayerOne)
+            if (isPlayerOne)
             {
                 audioManager.PlaySound(10);
             }
