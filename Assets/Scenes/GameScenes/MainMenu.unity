@@ -1472,6 +1472,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6936247412760230353, guid: 921662ffd7add07418720917f5151250, type: 3}
+      propertyPath: <Scenes>k__BackingField.Array.data[0].SceneName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7376412693576631271, guid: 921662ffd7add07418720917f5151250, type: 3}
       propertyPath: m_Name
       value: SceneManager
