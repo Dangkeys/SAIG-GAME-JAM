@@ -98,12 +98,15 @@ public class SceneManager : SingletonPersistent<SceneManager>
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            PauseManager.Instance.UnPause();
             ReloadCurrentScene();
         }else if (Input.GetKeyDown(KeyCode.Tab))
         {
+            PauseManager.Instance.UnPause();
             LoadFirstScene();
         }else if (Input.GetKeyDown(KeyCode.L))
         {
+            PauseManager.Instance.UnPause();
             LoadSecondScene();
         }
     }
