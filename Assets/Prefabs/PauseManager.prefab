@@ -3789,8 +3789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 105317835085901811}
-  SettingsUI: {fileID: 5160520102745418782}
-  ControlsUI: {fileID: 7787662553998174075}
+  SettingsUI: {fileID: 7787662553998174075}
+  ControlsUI: {fileID: 5160520102745418782}
 --- !u!1 &8709338496897814761
 GameObject:
   m_ObjectHideFlags: 0

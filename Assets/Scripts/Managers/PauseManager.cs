@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class PauseManager : SingletonPersistent<PauseManager>
 {
     // Start is called before the first frame update
-    [field: SerializeField][SceneObjectsOnly] public GameObject PauseUI;
-    [field: SerializeField][SceneObjectsOnly] public GameObject SettingsUI;
-    [field: SerializeField][SceneObjectsOnly] public GameObject ControlsUI;
+    [field: SerializeField] public GameObject PauseUI;
+    [field: SerializeField] public GameObject SettingsUI;
+    [field: SerializeField] public GameObject ControlsUI;
 
 
     void Start()
@@ -19,7 +20,7 @@ public class PauseManager : SingletonPersistent<PauseManager>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && SceneManager.Instance.GetCurrentScene() > 1)
         {
             TooglePause();
         }
@@ -46,6 +47,10 @@ public class PauseManager : SingletonPersistent<PauseManager>
     {
         PauseUI.SetActive(true);
         Time.timeScale = 0;
+    }
+    public void ShowSettingsUI()
+    {
+        SettingsUI.SetActive(true);
     }
     
 }
