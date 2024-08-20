@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
 
     private void ProcessScaling()
     {
-        if (Input.GetKeyDown(GetScaleKey()))
+        if (Input.GetKeyDown(GetScaleKey()) && Time.timeScale > 0)
         {
             ToggleScaling();
         }
