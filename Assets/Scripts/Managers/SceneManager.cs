@@ -99,6 +99,9 @@ public class SceneManager : SingletonPersistent<SceneManager>
         }else if (Input.GetKeyDown(KeyCode.Tab))
         {
             LoadFirstScene();
+        }else if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadSecondScene();
         }
     }
 
@@ -106,5 +109,8 @@ public class SceneManager : SingletonPersistent<SceneManager>
     {
         LoadScene(Scenes[0].SceneName);
     }
-
+    private void LoadSecondScene()
+    {
+        LoadScene(Scenes[1].SceneName);
+    }
 }

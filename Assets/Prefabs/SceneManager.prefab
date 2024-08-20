@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentSceneName>k__BackingField: 
   <Scenes>k__BackingField:
-  - SceneName: Mainmenu
+  - SceneName: MainMenu
     BuildIndex: 0
   - SceneName: SelectScene
     BuildIndex: 1
