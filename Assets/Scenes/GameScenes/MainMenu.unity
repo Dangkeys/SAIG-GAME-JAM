@@ -1173,9 +1173,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Back to Main Menu : Tab
 
+    Back to Select Level : L
+
     Restart : R
 
-'
+    Pause
+    Game : P'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1086db1c34c43c418acc8e806d66d71, type: 2}
   m_sharedMaterial: {fileID: 5028550977714869478, guid: b1086db1c34c43c418acc8e806d66d71, type: 2}
@@ -4341,6 +4344,10 @@ PrefabInstance:
     - target: {fileID: 1864764539326775503, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160520102745418782, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5539478546623359960, guid: 813894895f0ce1e469f1b7d5808f36c0, type: 3}
       propertyPath: m_AnchorMax.y
