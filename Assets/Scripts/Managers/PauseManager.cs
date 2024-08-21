@@ -7,6 +7,7 @@ public class PauseManager : SingletonPersistent<PauseManager>
     [field: SerializeField] public GameObject SettingsUI;
     [field: SerializeField] public GameObject ControlsUI;
 
+    [field: SerializeField] public GameObject PauseButton;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class PauseManager : SingletonPersistent<PauseManager>
         {
             TooglePause();
         }
+        PauseButton.SetActive(SceneManager.Instance.CurrentSceneName != "MainMenu" && SceneManager.Instance.CurrentSceneName != "SelectScene");
     }
     public void TooglePause()
     {
@@ -39,7 +41,7 @@ public class PauseManager : SingletonPersistent<PauseManager>
         ControlsUI.SetActive(false);
         Time.timeScale = 1;
     }
-    private void Pause()
+    public void Pause()
     {
         PauseUI.SetActive(true);
         Time.timeScale = 0;
@@ -48,5 +50,4 @@ public class PauseManager : SingletonPersistent<PauseManager>
     {
         SettingsUI.SetActive(true);
     }
-    
 }
