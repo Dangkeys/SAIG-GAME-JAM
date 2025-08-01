@@ -24,7 +24,7 @@ public class AmmoMove : MonoBehaviour
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        rb.velocity += direction * speed * Time.fixedDeltaTime;
+        rb.linearVelocity += direction * speed * Time.fixedDeltaTime;
     }
 
     public void SetTarget(Vector3 position)

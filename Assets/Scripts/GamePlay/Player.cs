@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        hasJumped = !isOnGround;
+
         ProcessMovement();
         ProcessJump();
         ProcessScaling();
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour
     {
         float moveX = isPlayerOne ? Input.GetAxis("Horizontal") : Input.GetAxis("Player2Horizontal");
 
-        movementInput = new Vector2(moveX, rb.velocity.y);
+        movementInput = new Vector2(moveX, rb.linearVelocity.y);
         audioManager.WalkingSound(moveX != 0 && isOnGround, isPlayerOne);
         HandleSprite(moveX);
     }
@@ -81,15 +83,11 @@ public class Player : MonoBehaviour
 
     private void ProcessJump()
     {
+
         if (isOnGround && Input.GetKey(GetJumpKey()) && !hasJumped)
         {
             ExecuteJump();
             hasJumped = true;
-        }
-
-        if (!isOnGround)
-        {
-            hasJumped = false;
         }
     }
 
@@ -104,7 +102,7 @@ public class Player : MonoBehaviour
 
     private void ApplyMovement()
     {
-        rb.velocity = new Vector2(movementInput.x * movementSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(movementInput.x * movementSpeed, rb.linearVelocity.y);
     }
 
     private void ExecuteJump()
@@ -115,7 +113,7 @@ public class Player : MonoBehaviour
         {
             jumpMultiplier = 0;
         }
-        if (rb.velocity.y <= 0)
+        if (rb.linearVelocity.y <= 0.5)
         {
             rb.AddForce(Vector2.up * (jumpForce * jumpMultiplier), ForceMode2D.Impulse);
             if (jumpMultiplier > 0)

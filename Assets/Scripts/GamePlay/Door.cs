@@ -114,13 +114,13 @@ public class Door : MonoBehaviour
     {
         if (playerOne != null)
         {
-            playerOne.GetComponent<Rigidbody2D>().velocity = Vector2.zero; // Stop Player 1's movement
+            playerOne.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // Stop Player 1's movement
             playerOne.enabled = false; // Disable Player 1's script to stop input
         }
 
         if (playerTwo != null)
         {
-            playerTwo.GetComponent<Rigidbody2D>().velocity = Vector2.zero; // Stop Player 2's movement
+            playerTwo.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // Stop Player 2's movement
             playerTwo.enabled = false; // Disable Player 2's script to stop input
         }
     }
