@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
             }
         }
         Vector2 movement = new Vector2(speed * Time.fixedDeltaTime * Time.timeScale, 0);
-        rigid.velocity = movement;
+        rigid.linearVelocity = movement;
     }
 
     private GameObject Tracking()
