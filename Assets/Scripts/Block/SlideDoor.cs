@@ -16,6 +16,7 @@ public class SlideDoor : MonoBehaviour
     [SerializeField] private List<Lever> lever = new List<Lever>();
     private bool isActive = false;
     private Vector3 targetPosition;
+    [SerializeField] private bool needAll = false;
     void Start()
     {
         startTransform = transform.position;
@@ -30,12 +31,23 @@ public class SlideDoor : MonoBehaviour
 
     private bool CheckIsActive()
     {
+        int amount = holdButton.Count + lever.Count;
+        int myAmount = 0;
         if (holdButton.Count > 0)
         {
             foreach (HoldButton button in holdButton)
             {
                 if (button != null && button.isActive)
-                    return true;
+                {
+                    if(needAll)
+                    {
+                        myAmount++;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
             }
         }
 
@@ -44,8 +56,22 @@ public class SlideDoor : MonoBehaviour
             foreach (Lever lever in lever)
             {
                 if (lever != null && lever.isActive)
-                    return true;
+                {
+                    if(needAll)
+                    {
+                        myAmount++;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
             }
+        }
+
+        if(needAll && amount == myAmount)
+        {
+            return true;
         }
 
         return false;
