@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using Sirenix.Utilities;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class SlideDoor : MonoBehaviour
@@ -17,66 +15,102 @@ public class SlideDoor : MonoBehaviour
     private bool isActive = false;
     private Vector3 targetPosition;
     [SerializeField] private bool needAll = false;
+    [SerializeField] private int allButton;
+    [SerializeField] private int activeButton;
     void Start()
     {
-        startTransform = transform.position;
-        targetPosition = GetTargetPosition();
+        Init();
     }
 
     void Update()
     {
-        isActive = CheckIsActive();
         DoorSlide();
     }
 
-    private bool CheckIsActive()
+    void OnDisable()
     {
-        int amount = holdButton.Count + lever.Count;
-        int myAmount = 0;
         if (holdButton.Count > 0)
         {
             foreach (HoldButton button in holdButton)
             {
-                if (button != null && button.isActive)
+                if (button != null)
                 {
-                    if(needAll)
-                    {
-                        myAmount++;
-                    }
-                    else
-                    {
-                        return true;
-                    }
+                    button.OnActiveChanged -= UpdateActive;
                 }
             }
         }
-
         if (lever.Count > 0)
         {
             foreach (Lever lever in lever)
             {
-                if (lever != null && lever.isActive)
+                if (lever != null)
                 {
-                    if(needAll)
-                    {
-                        myAmount++;
-                    }
-                    else
-                    {
-                        return true;
-                    }
+                    lever.OnActiveChanged -= UpdateActive;
                 }
             }
         }
-
-        if(needAll && amount == myAmount)
-        {
-            return true;
-        }
-
-        return false;
     }
 
+    private void Init()
+    {
+        startTransform = transform.position;
+        targetPosition = GetTargetPosition();
+        allButton = holdButton.Count + lever.Count;
+        if (holdButton.Count > 0)
+        {
+            foreach (HoldButton button in holdButton)
+            {
+                if (button != null)
+                {
+                    button.OnActiveChanged += UpdateActive;
+                }
+            }
+        }
+        if (lever.Count > 0)
+        {
+            foreach (Lever lever in lever)
+            {
+                if (lever != null)
+                {
+                    lever.OnActiveChanged += UpdateActive;
+                }
+            }
+        }
+    }
+
+    private void UpdateActive(bool active)
+    {
+        if(active)
+        {
+            activeButton++;
+        }
+        else
+        {
+            activeButton--;
+        }
+        if(needAll)
+        {
+            if(activeButton >= allButton)
+            {
+                isActive = true;
+            }
+            else
+            {
+                isActive = false;
+            }
+        }
+        else
+        {
+            if(activeButton >= 1)
+            {
+                isActive = true;
+            }
+            else
+            {
+                isActive = false;
+            }
+        }
+    }
 
     private void DoorSlide()
     {
