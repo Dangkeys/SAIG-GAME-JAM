@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,9 +13,11 @@ public class Enemy : MonoBehaviour
     private GameObject isTracking = null;
     private SpriteRenderer spriteRenderer;
     protected AudioManager audioManager;
+    [Range(0,3)]
+    [SerializeField] private float trackingOffset = 2;
     private void Awake()
     {
-        players = FindObjectsOfType<Player>();
+        players = FindObjectsByType<Player>(FindObjectsSortMode.None);
     }
 
     private void Start()
@@ -94,11 +97,11 @@ public class Enemy : MonoBehaviour
         }
         else if(isTracking != null)
         {
-            if(isTracking.transform.position.x >= transform.position.x)
+            if(isTracking.transform.position.x >= transform.position.x + trackingOffset)
             {
                 ChangeDirection(true);
             }
-            else if(isTracking.transform.position.x < transform.position.x)
+            else if(isTracking.transform.position.x < transform.position.x - trackingOffset)
             {
                 ChangeDirection(false);
             }
@@ -119,7 +122,7 @@ public class Enemy : MonoBehaviour
         {
             bool isUnderEnemy = transform.position.y <= player.transform.position.y;
             float newDistance = Vector3.Distance(transform.position, player.transform.position);
-            if (distance > newDistance && isUnderEnemy)
+            if (distance > newDistance  && isUnderEnemy)
             {
                 distance = newDistance;
                 isTracking = player.gameObject;
@@ -144,4 +147,5 @@ public class Enemy : MonoBehaviour
         }
         return -1;
     }
+    
 }

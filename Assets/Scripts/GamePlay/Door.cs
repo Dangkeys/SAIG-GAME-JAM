@@ -26,13 +26,13 @@ public class Door : MonoBehaviour
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            if (isPlayerOneDoor && player.isPlayerOne)
+            if (isPlayerOneDoor && player.IsPlayerOne)
             {
                 isPlayerOneOnDoor = true;
                 playerOne = player;
                 spriteRenderer.sprite = playerOnDoorSprite;
             }
-            else if (!isPlayerOneDoor && !player.isPlayerOne)
+            else if (!isPlayerOneDoor && !player.IsPlayerOne)
             {
                 isPlayerTwoOnDoor = true;
                 playerTwo = player;
@@ -47,13 +47,13 @@ public class Door : MonoBehaviour
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            if (isPlayerOneDoor && player.isPlayerOne)
+            if (isPlayerOneDoor && player.IsPlayerOne)
             {
                 isPlayerOneOnDoor = false;
                 playerOne = null;
                 spriteRenderer.sprite = noPlayerOnDoorSprite;
             }
-            else if (!isPlayerOneDoor && !player.isPlayerOne)
+            else if (!isPlayerOneDoor && !player.IsPlayerOne)
             {
                 isPlayerTwoOnDoor = false;
                 playerTwo = null;
@@ -100,7 +100,7 @@ public class Door : MonoBehaviour
         foreach (Door door in doors)
         {
             float distance = Vector2.Distance(player.transform.position, door.snapPosition.position);
-            if (distance < closestDistance && door.isPlayerOneDoor == player.isPlayerOne)
+            if (distance < closestDistance && door.isPlayerOneDoor == player.IsPlayerOne)
             {
                 closestDistance = distance;
                 closestDoor = door;

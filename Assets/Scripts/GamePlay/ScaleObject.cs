@@ -41,8 +41,8 @@ public class ScaleObject : MonoBehaviour
     private void SetScale(Player player)
     {
         isScaled = true;
-        Scale = player.isPlayerOne ? 2f : 0.5f;
-        SpriteRenderer.sprite = player.isPlayerOne ? MacroSprite : MicroSprite;
+        Scale = player.IsPlayerOne ? 2f : 0.5f;
+        SpriteRenderer.sprite = player.IsPlayerOne ? MacroSprite : MicroSprite;
         transform.localScale = new Vector3(Scale*originalScale.x, Scale*originalScale.y, 1);
         StartCoroutine(ScaleTimer());
     }

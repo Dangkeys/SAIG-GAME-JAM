@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
     [Header("State")]
     private bool isOnGround;
     private Vector3 initialScale;
-    private bool isScaled = false;
-    [field: SerializeField] public bool isPlayerOne { get; private set; }
+    public bool IsScaled {get; private set;} = false;
+    [field: SerializeField] public bool IsPlayerOne { get; private set; }
     private bool hasJumped;
     private AudioManager audioManager;
     private void Start()
@@ -61,10 +61,10 @@ public class Player : MonoBehaviour
 
     private void ProcessMovement()
     {
-        float moveX = isPlayerOne ? Input.GetAxis("Horizontal") : Input.GetAxis("Player2Horizontal");
+        float moveX = IsPlayerOne ? Input.GetAxis("Horizontal") : Input.GetAxis("Player2Horizontal");
 
         movementInput = new Vector2(moveX, rb.linearVelocity.y);
-        audioManager.WalkingSound(moveX != 0 && isOnGround, isPlayerOne);
+        audioManager.WalkingSound(moveX != 0 && isOnGround, IsPlayerOne);
         HandleSprite(moveX);
     }
 
@@ -110,8 +110,8 @@ public class Player : MonoBehaviour
     private void ExecuteJump()
     {
 
-        float jumpMultiplier = isPlayerOne || !isScaled ? 1 : player2JumpForceMultiplier;
-        if (isPlayerOne && isScaled)
+        float jumpMultiplier = IsPlayerOne || !IsScaled ? 1 : player2JumpForceMultiplier;
+        if (IsPlayerOne && IsScaled)
         {
             jumpMultiplier = 0;
         }
@@ -128,18 +128,18 @@ public class Player : MonoBehaviour
 
     private void TryToggleScaling()
     {
-        if (isScaled)
+        if (IsScaled)
         {
-            if(!isPlayerOne && !CanUseSkill) return;
+            if(!IsPlayerOne && !CanUseSkill) return;
             ResetScale();
         }
         else
         {
-            if(isPlayerOne && !CanUseSkill) return;
-            Vector3 newScale = isPlayerOne ? initialScale * scaleUpFactor : new Vector3(minimumScale, minimumScale, 1f);
+            if(IsPlayerOne && !CanUseSkill) return;
+            Vector3 newScale = IsPlayerOne ? initialScale * scaleUpFactor : new Vector3(minimumScale, minimumScale, 1f);
             transform.localScale = newScale;
             rb.mass = newScale.x * newScale.y * massScaleMultiplier;
-            if (isPlayerOne)
+            if (IsPlayerOne)
             {
                 audioManager.PlaySound(10);
             }
@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
             {
                 audioManager.PlaySound(9);
             }
-            isScaled = true;
+            IsScaled = true;
         }
     }
 
@@ -156,17 +156,17 @@ public class Player : MonoBehaviour
         transform.localScale = initialScale;
         rb.mass = initialScale.x * initialScale.y * massScaleMultiplier;
         audioManager.PlaySound(11);
-        isScaled = false;
+        IsScaled = false;
     }
 
     private KeyCode GetJumpKey()
     {
-        return isPlayerOne ? KeyCode.W : KeyCode.UpArrow;
+        return IsPlayerOne ? KeyCode.W : KeyCode.UpArrow;
     }
 
     private KeyCode GetScaleKey()
     {
-        return isPlayerOne ? KeyCode.S : KeyCode.DownArrow;
+        return IsPlayerOne ? KeyCode.S : KeyCode.DownArrow;
     }
 
     private void CheckIfOnGround()
