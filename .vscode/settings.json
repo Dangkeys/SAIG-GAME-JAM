@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SAIG-GAME-JAM.sln"
+    "dotnet.defaultSolution": "SAIG-GAME-JAM.slnx"
 }

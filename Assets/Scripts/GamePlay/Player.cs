@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     [field: SerializeField] public SpriteRenderer PlayerSprite { get; private set; }
     [field: SerializeField] public Animator PlayerAnimator { get; private set; }
 
+    public bool CanUseSkill;
+
     [Header("State")]
     private bool isOnGround;
     private Vector3 initialScale;
@@ -96,7 +98,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(GetScaleKey()) && Time.timeScale > 0)
         {
-            ToggleScaling();
+            TryToggleScaling();
         }
     }
 
@@ -124,14 +126,16 @@ public class Player : MonoBehaviour
 
     }
 
-    private void ToggleScaling()
+    private void TryToggleScaling()
     {
         if (isScaled)
         {
+            if(!isPlayerOne && !CanUseSkill) return;
             ResetScale();
         }
         else
         {
+            if(isPlayerOne && !CanUseSkill) return;
             Vector3 newScale = isPlayerOne ? initialScale * scaleUpFactor : new Vector3(minimumScale, minimumScale, 1f);
             transform.localScale = newScale;
             rb.mass = newScale.x * newScale.y * massScaleMultiplier;
