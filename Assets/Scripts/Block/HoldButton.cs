@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HoldButton : MonoBehaviour
@@ -7,6 +8,7 @@ public class HoldButton : MonoBehaviour
     [SerializeField] private Sprite InactiveSprite;
     [SerializeField] private SpriteRenderer SpriteRenderer;
     private AudioManager audioManager;
+    public event Action<bool> OnActiveChanged;
 
     private void Start()
     {
@@ -19,6 +21,7 @@ public class HoldButton : MonoBehaviour
         if (!isActive)
         {
             isActive = true;
+            OnActiveChanged?.Invoke(isActive);
             audioManager.PlaySound(3);
         }
         SpriteRenderer.sprite = ActiveSprite;
@@ -26,7 +29,11 @@ public class HoldButton : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isActive = false;
+        if(isActive)
+        {
+            isActive = false;
+            OnActiveChanged?.Invoke(isActive);
+        }
         SpriteRenderer.sprite = InactiveSprite;
     }
 }

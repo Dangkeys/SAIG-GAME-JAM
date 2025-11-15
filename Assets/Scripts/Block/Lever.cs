@@ -8,6 +8,7 @@ public class Lever : MonoBehaviour
     private bool goRight = false;
     private BoxCollider2D boxCollider2D;
     private AudioManager audioManager;
+    public event Action<bool> OnActiveChanged;
 
     private void Start()
     {
@@ -31,7 +32,11 @@ public class Lever : MonoBehaviour
             if (transform.eulerAngles.z >= 310 && transform.eulerAngles.z <= 315)
             {
                 working = false;
-                isActive = true;
+                if(!isActive)
+                {
+                    isActive = true;
+                    OnActiveChanged?.Invoke(isActive);          
+                }
             }
         }
         else
@@ -40,7 +45,11 @@ public class Lever : MonoBehaviour
             if (transform.eulerAngles.z >= 45 && transform.eulerAngles.z <= 50)
             {
                 working = false;
-                isActive = false;
+                if(isActive)
+                {
+                    isActive = false;
+                    OnActiveChanged?.Invoke(isActive);          
+                }
             }
         }
     }
