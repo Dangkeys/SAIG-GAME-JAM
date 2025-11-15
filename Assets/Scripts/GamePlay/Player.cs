@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     [field: SerializeField] public SpriteRenderer PlayerSprite { get; private set; }
     [field: SerializeField] public Animator PlayerAnimator { get; private set; }
 
-    public bool CanUseSkill;
+    public bool CanUseSkill = true;
 
     [Header("State")]
     private bool isOnGround;

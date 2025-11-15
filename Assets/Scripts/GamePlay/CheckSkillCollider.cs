@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckSkillCollider : MonoBehaviour
@@ -15,10 +16,14 @@ public class CheckSkillCollider : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponentInParent<Player>() != null)
+            return;
         player.CanUseSkill = false;
     }
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.GetComponentInParent<Player>() != null)
+            return;
         player.CanUseSkill = true;
     }
 }
