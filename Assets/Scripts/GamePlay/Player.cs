@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -28,10 +29,12 @@ public class Player : MonoBehaviour
     [Header("State")]
     private bool isOnGround;
     private Vector3 initialScale;
-    public bool IsScaled {get; private set;} = false;
+    [field: SerializeField] public bool IsScaled {get; private set;} = false;
     [field: SerializeField] public bool IsPlayerOne { get; private set; }
     private bool hasJumped;
     private AudioManager audioManager;
+
+    public event Action<bool> OnChangeScale;
     private void Start()
     {
         Initialize();
@@ -149,6 +152,7 @@ public class Player : MonoBehaviour
             }
             IsScaled = true;
         }
+        OnChangeScale?.Invoke(true);
     }
 
     private void ResetScale()
@@ -181,5 +185,18 @@ public class Player : MonoBehaviour
     public void Die()
     {
         SceneManager.Instance.ReloadCurrentScene();
+    }
+
+    public int MyWeight()
+    {
+        if(IsScaled)
+        {
+            if(IsPlayerOne)
+            {
+                return 2;
+            }
+            return 0;
+        }
+        return 1;
     }
 }

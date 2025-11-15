@@ -130,7 +130,7 @@ MonoBehaviour:
   <PlayerSprite>k__BackingField: {fileID: 1060087511437593981}
   <PlayerAnimator>k__BackingField: {fileID: 1958705464773106776}
   CanUseSkill: 1
-  <isPlayerOne>k__BackingField: 0
+  <IsPlayerOne>k__BackingField: 0
 --- !u!1 &4215598490390035735
 GameObject:
   m_ObjectHideFlags: 0
