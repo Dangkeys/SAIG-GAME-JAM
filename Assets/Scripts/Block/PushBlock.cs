@@ -33,7 +33,7 @@ public class PushBlock : MonoBehaviour
         {
             if (hitCollider.TryGetComponent(out Player player))
             {
-                if (player == player1 && player.IsScaled)
+                if (player == player1 && player.IsScaled && !player.CheckIfOnMacroBlock())
                 {
                     rb.mass = 1f;
                     return;

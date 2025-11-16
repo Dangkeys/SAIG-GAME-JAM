@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1952986c3c6b84646a8d1fb9a96f209a
+guid: f2c5f7b7aa0b1124c841eab71b603598
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8725439686261943781
-    second: InActiveGreenButton_2025_0
+      213: 6162674585736863345
+    second: ActiveGreenButton_2025_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InActiveGreenButton_2025_0
+      name: ActiveGreenButton_2025_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 512
-        height: 97
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ed2db05a2df61970800000000000000
-      internalID: 8725439686261943781
+      spriteID: 17e5c2d62e7368550800000000000000
+      internalID: 6162674585736863345
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      InActiveGreenButton_2025_0: 8725439686261943781
+      ActiveGreenButton_2025_0: 6162674585736863345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
