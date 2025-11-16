@@ -12,11 +12,13 @@ public class SlideDoor : MonoBehaviour
     private Vector3 startTransform;
     [SerializeField] private List<HoldButton> holdButton = new List<HoldButton>();
     [SerializeField] private List<Lever> lever = new List<Lever>();
+    [SerializeField] private List<Weighter> weighters = new List<Weighter>();
+    [SerializeField] private List<ActivationTrigger> activationTriggers = new List<ActivationTrigger>();
     private bool isActive = false;
     private Vector3 targetPosition;
     [SerializeField] private bool needAll = false;
-    [SerializeField] private int allButton;
-    [SerializeField] private int activeButton;
+    private int allButton;
+    private int activeButton;
     void Start()
     {
         Init();
@@ -25,30 +27,6 @@ public class SlideDoor : MonoBehaviour
     void Update()
     {
         DoorSlide();
-    }
-
-    void OnDisable()
-    {
-        if (holdButton.Count > 0)
-        {
-            foreach (HoldButton button in holdButton)
-            {
-                if (button != null)
-                {
-                    button.OnActiveChanged -= UpdateActive;
-                }
-            }
-        }
-        if (lever.Count > 0)
-        {
-            foreach (Lever lever in lever)
-            {
-                if (lever != null)
-                {
-                    lever.OnActiveChanged -= UpdateActive;
-                }
-            }
-        }
     }
 
     private void Init()
@@ -73,6 +51,26 @@ public class SlideDoor : MonoBehaviour
                 if (lever != null)
                 {
                     lever.OnActiveChanged += UpdateActive;
+                }
+            }
+        }
+        if (weighters.Count > 0)
+        {
+            foreach (Weighter weighter in weighters)
+            {
+                if (weighter != null)
+                {
+                    weighter.OnActiveChanged += UpdateActive;
+                }
+            }
+        }
+        if (activationTriggers.Count > 0)
+        {
+            foreach (ActivationTrigger activationTrigger in activationTriggers)
+            {
+                if (activationTrigger != null)
+                {
+                    activationTrigger.OnActiveChanged += UpdateActive;
                 }
             }
         }
