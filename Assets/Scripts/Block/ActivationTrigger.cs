@@ -8,6 +8,7 @@ public class ActivationTrigger : MonoBehaviour
     private int maxHoldButton = 0;
     private int myHoldButton = 0;
     public event Action<bool> OnActiveChanged;
+    private bool isFirst = true;
 
     void Start()
     {
@@ -31,8 +32,9 @@ public class ActivationTrigger : MonoBehaviour
         {
             myHoldButton--;
         }
-        if(myHoldButton >= maxHoldButton)
+        if(myHoldButton >= maxHoldButton && isFirst)
         {
+            isFirst = false;
             OnActiveChanged?.Invoke(true);
         }
     }
