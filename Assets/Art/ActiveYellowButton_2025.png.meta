@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e151d105c14b3e44989f7f2fdc2a8293
+guid: 2a6e836a12642d34ca9c95c433372364
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2810253045983742288
-    second: ActiveYellowButton_2025_0
+      213: 6724609024145671820
+    second: InActiveYellowButton_2025_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ActiveYellowButton_2025_0
+      name: InActiveYellowButton_2025_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 512
-        height: 130
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05902d68146000720800000000000000
-      internalID: 2810253045983742288
+      spriteID: c86c699674c925d50800000000000000
+      internalID: 6724609024145671820
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ActiveYellowButton_2025_0: 2810253045983742288
+      InActiveYellowButton_2025_0: 6724609024145671820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
