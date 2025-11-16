@@ -17,8 +17,8 @@ public class SlideDoor : MonoBehaviour
     private bool isActive = false;
     private Vector3 targetPosition;
     [SerializeField] private bool needAll = false;
-    private int allButton;
-    private int activeButton;
+    [SerializeField] private int allButton;
+    [SerializeField] private int activeButton;
     void Start()
     {
         Init();
@@ -33,7 +33,7 @@ public class SlideDoor : MonoBehaviour
     {
         startTransform = transform.position;
         targetPosition = GetTargetPosition();
-        allButton = holdButton.Count + lever.Count;
+        allButton = holdButton.Count + lever.Count + weighters.Count + activationTriggers.Count;
         if (holdButton.Count > 0)
         {
             foreach (HoldButton button in holdButton)

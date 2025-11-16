@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Weighter : MonoBehaviour
@@ -13,6 +14,7 @@ public class Weighter : MonoBehaviour
     public event Action<bool> OnActiveChanged;
     [SerializeField] private List<Player> players = new List<Player>();
     private List<Player> playersInMyWeight = new List<Player>();
+    [SerializeField] private TMP_Text text;
 
     private void Start()
     {
@@ -27,6 +29,7 @@ public class Weighter : MonoBehaviour
         {
             player.OnChangeScale += UpdateWeight;
         }
+        text.text = 0 + " / " + wantWeight;
     }
 
     private void UpdateWeight(bool value)
@@ -40,16 +43,24 @@ public class Weighter : MonoBehaviour
             }
             if(myWeight >= wantWeight)
             {
-                isActive = true;
+                if(!isActive)
+                {
+                    isActive = true;
+                    OnActiveChanged?.Invoke(isActive);
+                }
                 SpriteRenderer.sprite = ActiveSprite;
                 audioManager.PlaySound(3);
             }
             else
             {
-                isActive = false;
+                if(isActive)
+                {
+                    isActive = false;
+                    OnActiveChanged?.Invoke(isActive);
+                }
                 SpriteRenderer.sprite = InactiveSprite;
             }
-            OnActiveChanged?.Invoke(isActive);
+            text.text = myWeight + " / " + wantWeight;
         }
     }
 
