@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464403344830292234, guid: 30835514452a31745b80729ac831ef10, type: 3}
       propertyPath: m_Name
-      value: WeightDoorBlue Variant
+      value: WeightDoorBlue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
