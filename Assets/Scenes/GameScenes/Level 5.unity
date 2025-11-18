@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -18828,7 +18825,7 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 124ed44f4efc17641a95c107a0907edb, type: 3}
-      propertyPath: lever.Array.data[0]
+      propertyPath: 'lever.Array.data[0]'
       value: 
       objectReference: {fileID: 889369946}
     - target: {fileID: 3198798053892106723, guid: 124ed44f4efc17641a95c107a0907edb, type: 3}
@@ -18906,11 +18903,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: lever.Array.data[0]
+      propertyPath: 'lever.Array.data[0]'
       value: 
       objectReference: {fileID: 1332073207}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: lever.Array.data[1]
+      propertyPath: 'lever.Array.data[1]'
       value: 
       objectReference: {fileID: 1332073207}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
@@ -18918,11 +18915,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: holdButton.Array.data[0]
+      propertyPath: 'holdButton.Array.data[0]'
       value: 
       objectReference: {fileID: 66810046}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: holdButton.Array.data[1]
+      propertyPath: 'holdButton.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3198798053892106723, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
@@ -19444,6 +19441,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 479676499816782343, guid: 8b75f361bdcccc643902def31a48588d, type: 3}
   m_PrefabInstance: {fileID: 700062400}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &744853457
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1437466663641791237, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.55769
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.4596586
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712783525596427301, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729998748063179424, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: m_Name
+      value: AmmoShooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661183727245419081, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: isTurret
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661183727245419081, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
+      propertyPath: visionDistance
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 838f4cb32cdca9f4d956e53b407e7679, type: 3}
 --- !u!1001 &802246106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19688,7 +19754,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: lever.Array.data[0]
+      propertyPath: 'lever.Array.data[0]'
       value: 
       objectReference: {fileID: 1332073207}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
@@ -19696,11 +19762,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: holdButton.Array.data[0]
+      propertyPath: 'holdButton.Array.data[0]'
       value: 
       objectReference: {fileID: 66810046}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: holdButton.Array.data[1]
+      propertyPath: 'holdButton.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3198798053892106723, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
@@ -20023,7 +20089,7 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: lever.Array.data[0]
+      propertyPath: 'lever.Array.data[0]'
       value: 
       objectReference: {fileID: 1332073207}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
@@ -20031,15 +20097,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: holdButton.Array.data[0]
+      propertyPath: 'holdButton.Array.data[0]'
       value: 
       objectReference: {fileID: 66810046}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: holdButton.Array.data[1]
+      propertyPath: 'holdButton.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 223262322837299799, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
-      propertyPath: holdButton.Array.data[2]
+      propertyPath: 'holdButton.Array.data[2]'
       value: 
       objectReference: {fileID: 66810046}
     - target: {fileID: 3198798053892106723, guid: 5ce21a230e759924eba1f8772330df40, type: 3}
@@ -21041,3 +21107,4 @@ SceneRoots:
   - {fileID: 2095892919}
   - {fileID: 609317638}
   - {fileID: 811215945}
+  - {fileID: 744853457}

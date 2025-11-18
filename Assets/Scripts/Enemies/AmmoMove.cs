@@ -4,7 +4,7 @@ using UnityEngine;
 public class AmmoMove : MonoBehaviour
 {
     [SerializeField] private uint speed = 1;
-    private Vector2 direction;
+    private Vector2 direction = Vector3.right;
     private CircleCollider2D circleCollider2D;
     private Rigidbody2D rb;
     private AudioManager audioManager;
@@ -35,17 +35,19 @@ public class AmmoMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
+        if (collision.gameObject.GetComponent<Enemy>() || collision.gameObject.GetComponent<AmmoShooter>())
+            return;
+        if (collision.gameObject.TryGetComponent(out Player player))
         {
-            if (collision.gameObject.TryGetComponent<Player>(out Player player))
+            if (!(player.IsPlayerOne && player.IsScaled))
             {
-                if (!(player.IsPlayerOne && player.IsScaled))
-                {
-                    player.Die();
-                }
+                player.Die();
             }
-            audioManager.PlaySound(12);
-            Destroy(gameObject);
         }
+        if (audioManager != null)
+        {
+            audioManager.PlaySound(12);
+        }
+        Destroy(gameObject);
     }
 }
