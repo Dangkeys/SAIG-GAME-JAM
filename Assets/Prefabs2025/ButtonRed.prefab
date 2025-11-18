@@ -136,6 +136,9 @@ MonoBehaviour:
   ActiveSprite: {fileID: 21300000, guid: 4795109cc6b69e447ae03bcb2bd531c4, type: 3}
   InactiveSprite: {fileID: 21300000, guid: 31a5f40d066b1b24081982c91dcea694, type: 3}
   SpriteRenderer: {fileID: 2940417579601558550}
+  canUseSkillCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!61 &7787444801445820416
 BoxCollider2D:
   m_ObjectHideFlags: 0
