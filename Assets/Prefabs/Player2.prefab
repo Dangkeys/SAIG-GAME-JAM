@@ -130,6 +130,7 @@ MonoBehaviour:
   <PlayerSprite>k__BackingField: {fileID: 1060087511437593981}
   <PlayerAnimator>k__BackingField: {fileID: 1958705464773106776}
   CanUseSkill: 1
+  <IsScaled>k__BackingField: 0
   <IsPlayerOne>k__BackingField: 0
 --- !u!1 &4215598490390035735
 GameObject:
@@ -410,7 +411,7 @@ GameObject:
   - component: {fileID: 472365639439211681}
   m_Layer: 0
   m_Name: canUseSkillCheck
-  m_TagString: Untagged
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
