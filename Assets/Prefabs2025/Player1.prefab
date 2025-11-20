@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 1697869083620779914}
   - component: {fileID: 6065947171157913677}
   - component: {fileID: 7104995503230607615}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: canUseSkillCheck (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
