@@ -3,7 +3,7 @@ using UnityEngine;
 public class AmmoShooter : MonoBehaviour
 {
     [SerializeField] private GameObject ammoPrefab;
-    [SerializeField] private uint cooldown;
+    [SerializeField] private float cooldown;
     [SerializeField] private Transform ammoFolder;
 
     private float time = 0;
@@ -23,7 +23,6 @@ public class AmmoShooter : MonoBehaviour
 
         if (Time.timeSinceLevelLoad > time + cooldown)
         {
-            Debug.Log("heck");
             InitAmmo();
             if (audioManager != null)
             {

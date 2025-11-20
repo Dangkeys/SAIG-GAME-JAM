@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - head
+  - skill
   layers:
   - Default
   - TransparentFX

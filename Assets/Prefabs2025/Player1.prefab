@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 7104995503230607615}
   m_Layer: 9
   m_Name: canUseSkillCheck (1)
-  m_TagString: Untagged
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

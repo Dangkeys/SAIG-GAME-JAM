@@ -19,6 +19,7 @@ public class HoldButton : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if(collision.CompareTag("skill"))return;
         if (((1 << collision.gameObject.layer) & canUseSkillCheckLayerMask.value) != 0) return;
         if (!isActive)
         {
