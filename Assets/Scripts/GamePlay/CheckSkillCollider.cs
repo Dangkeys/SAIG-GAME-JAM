@@ -7,6 +7,8 @@ public class CheckSkillCollider : MonoBehaviour
     private Collider2D col;
     private Player player;
 
+    private int colliderCount = 0;
+
     void Awake()
     {
         col = GetComponent<Collider2D>();
@@ -18,12 +20,17 @@ public class CheckSkillCollider : MonoBehaviour
     {
         if (collision.GetComponentInParent<Player>() != null)
             return;
+        colliderCount++;
         player.CanUseSkill = false;
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponentInParent<Player>() != null)
             return;
-        player.CanUseSkill = true;
+        colliderCount--;
+        if (colliderCount == 0)
+        {
+            player.CanUseSkill = true;
+        }
     }
 }
