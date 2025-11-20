@@ -7,6 +7,7 @@ public class HoldButton : MonoBehaviour
     [SerializeField] private Sprite ActiveSprite;
     [SerializeField] private Sprite InactiveSprite;
     [SerializeField] private SpriteRenderer SpriteRenderer;
+    [SerializeField] private LayerMask canUseSkillCheckLayerMask;
     private AudioManager audioManager;
     public event Action<bool> OnActiveChanged;
 
@@ -18,8 +19,8 @@ public class HoldButton : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.CompareTag("skill"))
-            return;
+        if(collision.CompareTag("skill"))return;
+        if (((1 << collision.gameObject.layer) & canUseSkillCheckLayerMask.value) != 0) return;
         if (!isActive)
         {
             isActive = true;
@@ -31,7 +32,8 @@ public class HoldButton : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(isActive)
+        if (((1 << collision.gameObject.layer) & canUseSkillCheckLayerMask.value) != 0) return;
+        if (isActive)
         {
             isActive = false;
             OnActiveChanged?.Invoke(isActive);

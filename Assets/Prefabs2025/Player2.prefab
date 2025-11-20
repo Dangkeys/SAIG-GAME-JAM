@@ -230,7 +230,7 @@ Animator:
   m_GameObject: {fileID: 4215598490390035735}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2fe936854fee664b9d33ffadcdfcce2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5cbaa32340b09a94ea6389f9f7ddfd78, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 5191702440436211123}
   - component: {fileID: 6001167085804435575}
   - component: {fileID: 472365639439211681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: canUseSkillCheck
   m_TagString: skill
   m_Icon: {fileID: 0}

@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 5191702440436211123}
   - component: {fileID: 6001167085804435575}
   - component: {fileID: 472365639439211681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: canUseSkillCheck
   m_TagString: skill
   m_Icon: {fileID: 0}
