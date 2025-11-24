@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d42317a98829f142a46a607d5c421a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CurrentSceneName>k__BackingField: 
+  <CurrentSceneName>k__BackingField: SelectScene
   <Scenes>k__BackingField:
   - SceneName: MainMenu
     BuildIndex: 0
@@ -70,3 +70,23 @@ MonoBehaviour:
     BuildIndex: 10
   - SceneName: Level 10
     BuildIndex: 11
+  - SceneName: Level 11
+    BuildIndex: 12
+  - SceneName: Level 12
+    BuildIndex: 13
+  - SceneName: Level 13
+    BuildIndex: 14
+  - SceneName: Level 14
+    BuildIndex: 15
+  - SceneName: Level 15
+    BuildIndex: 16
+  - SceneName: Level 16
+    BuildIndex: 17
+  - SceneName: Level 17
+    BuildIndex: 18
+  - SceneName: Level 18
+    BuildIndex: 19
+  - SceneName: Level 19
+    BuildIndex: 20
+  - SceneName: Level 20
+    BuildIndex: 21

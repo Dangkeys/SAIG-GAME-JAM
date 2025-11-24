@@ -41,4 +41,35 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScenes/Level 10.unity
     guid: fc2544a9009df9f4bb6031c26a48b6bd
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 11.unity
+    guid: 8df9932b52f1746458fefc74a44b3df8
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 12.unity
+    guid: e80084798e498f646b3488bea2ca8436
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 13.unity
+    guid: 7ef02892966e82a498808c2227224427
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 14.unity
+    guid: a1e166b96cb0a2f42816b1ef1a70eae7
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 15.unity
+    guid: 471a4b3de3009a44b8a56ace6888dec0
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 16.unity
+    guid: 045135337a46c8f4789bcb357f8430d4
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 17.unity
+    guid: 6f3fa13bd60f88d4ea6d3d724f47028a
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 18.unity
+    guid: 9441bf113636b894483c19376ee75db5
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 19.unity
+    guid: 80e564f1ccf11d54ab43dad18feac45e
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level 20.unity
+    guid: 7d225dcc7322dbb4eb293a932515eeab
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

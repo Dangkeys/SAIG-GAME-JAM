@@ -18,14 +18,14 @@ public class CheckSkillCollider : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponentInParent<Player>() != null)
+        if (collision.GetComponentInParent<Player>() != null || collision.GetComponentInParent<HoldButton>() != null)
             return;
         colliderCount++;
         player.CanUseSkill = false;
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponentInParent<Player>() != null)
+        if (collision.GetComponentInParent<Player>() != null || collision.GetComponentInParent<HoldButton>() != null)
             return;
         colliderCount--;
         if (colliderCount == 0)
